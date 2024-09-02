@@ -7,14 +7,15 @@
   "readme": "README.md",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev",
+    "dev": "nuxt dev --port 5561",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write ."
+    "prettier:fix": "prettier --write .",
+    "shadcn": "npx shadcn-vue add"
   },
   "dependencies": {
     "@nuxt/fonts": "^0.7.2",
@@ -23,6 +24,7 @@
     "@nuxtjs/color-mode": "^3.4.4",
     "@nuxtjs/i18n": "^8.5.1",
     "@pinia/nuxt": "^0.5.4",
+    "@vueuse/core": "^11.0.3",
     "@vueuse/nuxt": "^11.0.3",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",

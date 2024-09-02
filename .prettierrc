@@ -8,7 +8,7 @@
   "trailingComma": "es5",
   "plugins": ["prettier-plugin-tailwindcss"],
   "endOfLine": "crlf",
-  "tailwindFunctions": ["clsx"],
+  "tailwindFunctions": ["clsx", "twMerge", "cn"],
   "tailwindAttributes": ["innerClass", "inner-class"],
   "overrides": [
     {

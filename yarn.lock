@@ -2814,7 +2814,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@vueuse/core@npm:11.0.3":
+"@vueuse/core@npm:11.0.3, @vueuse/core@npm:^11.0.3":
   version: 11.0.3
   resolution: "@vueuse/core@npm:11.0.3"
   dependencies:
@@ -7101,6 +7101,7 @@ __metadata:
     "@types/eslint__eslintrc": "npm:^2.1.2"
     "@types/eslint__js": "npm:^8.42.3"
     "@types/postcss-js": "npm:^4.0.4"
+    "@vueuse/core": "npm:^11.0.3"
     "@vueuse/nuxt": "npm:^11.0.3"
     class-variance-authority: "npm:^0.7.0"
     clsx: "npm:^2.1.1"

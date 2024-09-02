@@ -147,6 +147,7 @@ export default {
     animate,
     cssImportPlugin("./assets/css/components/autolink.css"),
     cssImportPlugin("./assets/css/components/glow-text.css"),
+    cssImportPlugin("./assets/css/components/monaspace.css"),
     plugin(({ addComponents, addUtilities, matchUtilities, theme }) => {
       // Variable fonts
       addComponents({

@@ -151,6 +151,11 @@ export default defineNuxtConfig({
       },
     ],
   },
+  runtimeConfig: {
+    public: {
+      apiUrl: import.meta.env.API_URL || "https://api.naoti.me",
+    },
+  },
   i18n: {
     strategy: "prefix_except_default",
     baseUrl: import.meta.env.DOMAIN_URL || "https://panel.naoti.me",
@@ -179,21 +184,18 @@ export default defineNuxtConfig({
     /**
      * Prefix for all the imported component
      */
-    prefix: "",
+    prefix: "UI",
     /**
      * Directory that the component lives in.
      * @default "./components/ui"
      */
-    componentDir: "./components/ui",
+    componentDir: "./components/UI",
   },
   colorMode: {
     preference: "system",
     fallback: "dark",
     classSuffix: "",
     storageKey: "naotimesui.colorMode",
-  },
-  pinia: {
-    storesDirs: ["./stores/**"],
   },
   image: {
     ipx: {

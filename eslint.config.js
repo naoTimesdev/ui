@@ -258,6 +258,15 @@ export default tseslint.config(
     },
   },
   {
+    files: ["*.d.ts"],
+    rules: {
+      "no-unused-vars": "off",
+      "@typescript-eslint/no-unused-vars": "off",
+      "@typescript-eslint/no-empty-interface": "off",
+      "@typescript-eslint/no-empty-object-type": "off",
+    },
+  },
+  {
     ignores: ["**/node_modules/", ".git/", ".yarn/**/*", ".nuxt/**/*"],
   }
 );

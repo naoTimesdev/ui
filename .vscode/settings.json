@@ -66,4 +66,7 @@
     "eslint.useFlatConfig": true,
     "i18n-ally.sourceLanguage": "id",
     "i18n-ally.displayLanguage": "id",
+    "tailwindCSS.experimental.classRegex": [
+        "cn\\(([^)]+)\\)",
+    ]
 }

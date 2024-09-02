@@ -6,7 +6,7 @@ A rewrite in progress...
 
 The following version of **naoTimesUI** is in **Alpha stage**, it is not recommended to use this version in production.
 
-Public original version: https://panel.naoti.me/
+Public original version: https://panel.naoti.me/<br/>
 Public alpha version: https://canary.panel.naoti.me/
 
 ## License
