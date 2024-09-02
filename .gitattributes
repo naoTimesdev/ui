@@ -1,0 +1,5 @@
+/.yarn/releases/** binary
+/.yarn/plugins/** binary
+
+# Mark eslint.config.js to not be included in github language stats
+eslint.config.js linguist-vendored
