@@ -23,6 +23,18 @@ const locales: LocaleObject[] = [
 ];
 const defaultLocale = "id";
 
+function getWsEndpoint(originalUrl: string) {
+  if (!originalUrl) {
+    return "";
+  }
+
+  const url = new URL(originalUrl);
+
+  url.protocol = url.protocol === "https:" ? "wss:" : "ws:";
+
+  return url.toString();
+}
+
 // https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
   compatibilityDate: "2024-04-03",
@@ -37,6 +49,7 @@ export default defineNuxtConfig({
     "@nuxt/image",
     "@vueuse/nuxt",
     "@pinia/nuxt",
+    "@nuxtjs/apollo",
   ],
   app: {
     head: {
@@ -163,6 +176,23 @@ export default defineNuxtConfig({
     langDir: "locales",
     defaultLocale,
     locales,
+  },
+  apollo: {
+    // Disable cookies
+    proxyCookies: false,
+    clients: {
+      default: {
+        httpEndpoint: `${import.meta.env.API_URL || "https://api.naoti.me"}/graphql`,
+        // XXX: Enable later when WS is fully implemented
+        wsEndpoint: getWsEndpoint(`${import.meta.env.API_URL || "https://api.naoti.me"}/graphql`),
+        tokenName: "naotimesui.token",
+        tokenStorage: "localStorage",
+        websocketsOnly: false,
+        authHeader: "Authorization",
+        authType: "Bearer",
+      },
+    },
+    clientAwareness: true,
   },
   fonts: {
     families: [
