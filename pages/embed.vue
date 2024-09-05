@@ -205,6 +205,8 @@ function getHeadInfo(server?: SearchServer): Parameters<typeof useHeadSafe>[0] {
 
 function dispatchNewHeight() {
   if (window.parent) {
+    console.log("Dispatching new height");
+
     const height = document.body.scrollHeight;
 
     window.parent.postMessage(
@@ -342,5 +344,11 @@ definePageMeta({
 <style lang="postcss" scoped>
 .font-rubik {
   font-family: "Rubik";
+}
+</style>
+
+<style lang="postcss">
+body {
+  @apply !bg-transparent;
 }
 </style>

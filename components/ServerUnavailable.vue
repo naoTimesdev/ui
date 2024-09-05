@@ -1,10 +1,10 @@
 <template>
   <div class="flex h-screen flex-col items-center justify-center">
     <Icon name="i-heroicons-server-stack" class="size-16 animate-pulse p-4" />
-    <h1 class="font-variable mt-4 text-3xl variation-weight-bold">
+    <h1 class="font-variable mt-4 text-center text-3xl variation-weight-bold">
       {{ $t("app.unavailable.header") }}
     </h1>
-    <p class="mt-1">
+    <p class="mt-1 text-center">
       {{ $t("app.unavailable.message") }}
     </p>
   </div>
