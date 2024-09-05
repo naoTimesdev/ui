@@ -12,7 +12,7 @@
         <UIDropdownMenu>
           <UIDropdownMenuTrigger as-child>
             <UIAvatar>
-              <UIAvatarImage :src="avatarUrl" alt="Avatar URL" />
+              <UIAvatarImage :src="avatarUrl ?? ''" alt="Avatar URL" />
               <UIAvatarFallback>{{ userInitials }}</UIAvatarFallback>
             </UIAvatar>
           </UIDropdownMenuTrigger>

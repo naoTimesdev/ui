@@ -165,7 +165,11 @@ export default defineNuxtConfig({
     public: {
       apiUrl: import.meta.env.API_URL || "https://api.naoti.me",
       cdnUrl: import.meta.env.CDN_URL || import.meta.env.API_URL || "https://api.naoti.me",
+      meiliUrl: import.meta.env.MEILI_URL || "https://msapi.naoti.me",
+      meiliKey: import.meta.env.MEILI_KEY,
     },
+    meiliPrivateKey: import.meta.env.MEILI_KEY,
+    apiPrivateKey: import.meta.env.API_KEY,
   },
   i18n: {
     strategy: "no_prefix",
@@ -205,6 +209,14 @@ export default defineNuxtConfig({
         name: "Monaspace Neon",
         provider: "fontsource",
         weights: ["400", "600", "700", "800"],
+      },
+      {
+        name: "Rubik",
+        provider: "fontsource",
+        weights: ["300", "400", "500", "600", "700"],
+        display: "swap",
+        styles: ["normal", "italic"],
+        subsets: ["latin", "latin-ext"],
       },
     ],
   },

@@ -21,5 +21,37 @@
       "general": "Failed to authenticate"
     },
     "loading": "Authenticating"
+  },
+  "embed": {
+    "error": {
+      "notFound": "Server not found",
+      "noProjects": "No active projects",
+      "failedProjects": "Failed to get projects"
+    },
+    "card": {
+      "seasonYear": {
+        "winter": "Winter {year}",
+        "fall": "Fall {year}",
+        "summer": "Summer {year}",
+        "spring": "Spring {year}"
+      },
+      "lastUpdate": "Updated {0}",
+      "roles": {
+        "TL": "Translating",
+        "TLC": "Translation Checking",
+        "ENC": "Encoding",
+        "ED": "Editing",
+        "TM": "Timing",
+        "TS": "Typesetting",
+        "QC": "Quality Checking"
+      },
+      "numberNeeds": "Episode {0} needs",
+      "number": "Episode {0}",
+      "waitRelease": "Waiting for release...",
+      "noProgress": "No progress",
+      "notAired": "Not aired yet",
+      "showEpisodes": "See next {0} episode...",
+      "hideEpisodes": "Close..."
+    }
   }
 }

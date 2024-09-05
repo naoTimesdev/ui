@@ -49,13 +49,13 @@ function cssImportPlugin(cssPath: string): PluginCreator {
 
 export default {
   content: [
-    "./assets/**/*.{js,css,scss,html}",
-    "./components/**/*.{js,ts,vue}",
-    "./composables/**/*.{js,ts,vue}",
-    "./layouts/**/*.{js,ts,vue}",
-    "./middleware/**/*.{js,ts,vue}",
-    "./pages/**/*.{js,ts,vue}",
-    "./utils/**/*.{js,ts,vue}",
+    "./assets/**/*.{js,ts,vue,css,scss,html}",
+    "./components/**/*.{js,ts,vue,tsx,jsx}",
+    "./composables/**/*.{js,ts,vue,tsx,jsx}",
+    "./layouts/**/*.{js,ts,vue,tsx,jsx}",
+    "./middleware/**/*.{js,ts,vue,tsx,jsx}",
+    "./pages/**/*.{js,ts,vue,tsx,jsx}",
+    "./utils/**/*.{js,ts,vue,tsx,jsx}",
     "./content/**/*.{md,mdx,json,yaml,yml}",
     "./app.vue",
     "./error.vue",
@@ -109,7 +109,7 @@ export default {
       fontFamily: {
         monospace: ["Monaspace Xenon Var VF", "Monaspace Xenon", ...defaultTheme.fontFamily.mono],
         sans: ["Monaspace Neon Var VF", "Monaspace Neon", ...defaultTheme.fontFamily.sans],
-        custom: ["Monaspace Neon", "Monaspace Xenon", "Monaspace Neon Var VF", "Monaspace Xenon Var VF"],
+        custom: ["Monaspace Neon", "Monaspace Xenon", "Monaspace Neon Var VF", "Monaspace Xenon Var VF", "Rubik"],
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",

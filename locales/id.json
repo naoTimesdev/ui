@@ -21,5 +21,37 @@
       "general": "Tidak dapat mengautentikasi"
     },
     "loading": "Mengautentikasi"
+  },
+  "embed": {
+    "error": {
+      "notFound": "Peladen tidak ditemukan",
+      "noProjects": "Tidak ada utang proyek",
+      "failedProjects": "Gagal mengambil data proyek"
+    },
+    "card": {
+      "seasonYear": {
+        "winter": "Musim dingin {year}",
+        "fall": "Musim gugur {year}",
+        "summer": "Musim panas {year}",
+        "spring": "Musim semi {year}"
+      },
+      "lastUpdate": "Diperbarui {0}",
+      "roles": {
+        "TL": "Terjemahan",
+        "TLC": "Cek Terjemahan",
+        "ENC": "Olahan Video",
+        "ED": "Menggubah Skrip",
+        "TM": "Selaras Waktu",
+        "TS": "Tata Rias",
+        "QC": "Tinjauan Akhir"
+      },
+      "numberNeeds": "Episode {0} butuh",
+      "number": "Episode {0}",
+      "waitRelease": "Menunggu dirilis...",
+      "noProgress": "Belum ada progres",
+      "notAired": "Belum tayang",
+      "showEpisodes": "Lihat {0} episode selanjutnya...",
+      "hideEpisodes": "Tutup..."
+    }
   }
 }

@@ -3,9 +3,20 @@ import type { GraphQLFormattedError } from "graphql";
 type Nullable<T> = T | null;
 
 export type UlidGQL = string;
+export type DateTimeGQL = string;
 export type APIKey = `nsh_${string}`;
 
 export type UserKindGQL = "USER" | "ADMIN" | "OWNER";
+export type ProjectKindGQL =
+  | "SERIES"
+  | "MOVIES"
+  | "OVA"
+  | "BOOKS"
+  | "MANGA"
+  | "LIGHT_NOVEL"
+  | "GAMES"
+  | "VISUAL_NOVEL"
+  | "UNKNOWN";
 
 export interface ImageMetadataGQL {
   url?: string;
@@ -22,6 +33,29 @@ export interface UserGQL {
 export interface UserSessionGQL {
   token: string;
   user: UserGQL;
+}
+
+export interface ProjectLatestGQL {
+  id: UlidGQL;
+  title: string;
+  kind: ProjectKindGQL;
+  poster: {
+    image: ImageMetadataGQL;
+  };
+  progress: {
+    airDate: Nullable<DateTimeGQL>;
+    delayReason: Nullable<string>;
+    finished: boolean;
+    number: string;
+    statuses: {
+      role: {
+        key: string;
+        name: string;
+      };
+      finished: boolean;
+    }[];
+  }[];
+  updated: DateTimeGQL;
 }
 
 export const mutateAuthDiscord = gql`
@@ -58,6 +92,36 @@ export const queryCurrentUser = gql`
   }
 `;
 
+const queryLatestProjectServers = `query allProjects($serverId: UlidGQL!) {
+  projects(serverIds: [$serverId], unpaged: true) {
+    node {
+      id
+      title
+      kind
+      poster {
+        image {
+          url
+        }
+      }
+      progress(limitLatest: 4, returnLast: false) {
+        airDate
+        delayReason
+        finished
+        number
+        statuses {
+          role {
+            key
+            name
+          }
+          finished
+        }
+      }
+      updated
+    }
+  }
+}
+`;
+
 function buildErrorMessageStack(errors: readonly GraphQLFormattedError[]) {
   return errors
     .map((error, idx) => {
@@ -91,4 +155,40 @@ export class GraphQLSimpleError extends Error {
       this.context = [];
     }
   }
+}
+
+export async function graphqlGetLatestProjectsInformation(serverId: UlidGQL) {
+  const runtimeConfig = useRuntimeConfig();
+  const { makeUrl } = useServerUrl();
+
+  const variables = {
+    serverId,
+  };
+
+  const queryData = JSON.stringify({
+    query: queryLatestProjectServers,
+    variables,
+    operationName: "allProjects",
+  });
+
+  const results = await fetch(makeUrl("/graphql"), {
+    method: "POST",
+    headers: {
+      Authorization: `Token ${runtimeConfig.apiPrivateKey}`,
+      "Content-Type": "application/json",
+    },
+    body: queryData,
+  });
+
+  if (results.ok) {
+    const json = await results.json();
+
+    if (json.errors) {
+      throw new GraphQLSimpleError(json.errors);
+    }
+
+    return json.data.projects.node as ProjectLatestGQL[];
+  }
+
+  throw new Error("An unknown error occurred");
 }
