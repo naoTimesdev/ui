@@ -82,75 +82,73 @@ export default defineNuxtConfig({
           name: "application-name",
           content: "naoTimesUI",
         },
-        // {
-        //   name: "msapplication-TileColor",
-        //   content: "#171717",
-        // },
-        // {
-        //   name: "msapplication-TileImage",
-        //   content: "/assets/favicons/mstile-150x150.png",
-        // },
+        {
+          name: "msapplication-TileColor",
+          content: "#fd8455",
+        },
+        {
+          name: "msapplication-TileImage",
+          content: "/assets/favicons/ms-icon-144x144.png",
+        },
+        {
+          name: "theme-color",
+          content: "#fd8455",
+        },
       ],
       link: [
-        // {
-        //   rel: "shortcut icon",
-        //   href: "/favicon.ico",
-        // },
-        // {
-        //   rel: "apple-touch-icon",
-        //   sizes: "180x180",
-        //   href: "/assets/favicons/apple-touch-icon.png",
-        // },
-        // {
-        //   rel: "icon",
-        //   type: "image/png",
-        //   sizes: "512x512",
-        //   href: "/assets/favicons/android-chrome-512x512.png",
-        // },
-        // {
-        //   rel: "icon",
-        //   type: "image/png",
-        //   sizes: "192x192",
-        //   href: "/assets/favicons/android-chrome-192x192.png",
-        // },
-        // {
-        //   rel: "icon",
-        //   type: "image/png",
-        //   sizes: "96x96",
-        //   href: "/assets/favicons/android-chrome-96x96.png",
-        // },
-        // {
-        //   rel: "icon",
-        //   type: "image/png",
-        //   sizes: "32x32",
-        //   href: "/assets/favicons/favicon-32x32.png",
-        // },
-        // {
-        //   rel: "icon",
-        //   type: "image/png",
-        //   sizes: "32x32",
-        //   href: "/assets/favicons/favicon-32x32.png",
-        // },
-        // {
-        //   rel: "icon",
-        //   type: "image/png",
-        //   sizes: "16x16",
-        //   href: "/assets/favicons/favicon-16x16.png",
-        // },
-        // {
-        //   rel: "icon",
-        //   type: "image/png",
-        //   href: "/assets/favicons/android-chrome-192x192.png",
-        // },
-        // {
-        //   rel: "manifest",
-        //   href: "/site.webmanifest",
-        // },
-        // {
-        //   rel: "mask-icon",
-        //   href: "/assets/favicons/safari-pinned-tab.svg",
-        //   color: "#c2410c",
-        // },
+        {
+          rel: "shortcut icon",
+          href: "/favicon.ico",
+        },
+        {
+          rel: "apple-touch-icon",
+          sizes: "180x180",
+          href: "/assets/favicons/apple-touch-icon.png",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "512x512",
+          href: "/assets/favicons/android-chrome-512x512.png",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "192x192",
+          href: "/assets/favicons/android-chrome-192x192.png",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "96x96",
+          href: "/assets/favicons/android-chrome-96x96.png",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "32x32",
+          href: "/assets/favicons/favicon-32x32.png",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          sizes: "16x16",
+          href: "/assets/favicons/favicon-16x16.png",
+        },
+        {
+          rel: "icon",
+          type: "image/png",
+          href: "/assets/favicons/android-chrome-192x192.png",
+        },
+        {
+          rel: "manifest",
+          href: "/site.webmanifest",
+        },
+        {
+          rel: "mask-icon",
+          href: "/assets/favicons/safari-pinned-tab.svg",
+          color: "#fd8455",
+        },
       ],
       script: [
         {
