@@ -35,6 +35,7 @@ const defaultParams = {
 
 const route = useRoute();
 const router = useRouter();
+const runtimeConfig = useRuntimeConfig();
 const { id, accent, dark, lang } = route.query;
 const meili = useMeili();
 
@@ -160,9 +161,12 @@ function getHeadInfo(server?: SearchServer): Parameters<typeof useHeadSafe>[0] {
 
     ogAPI.search = searchParams.toString();
 
-    const embedUrl = new URL(
-      `https://panel.naoti.me/embed?id=${server.id}#lang=${mergedConfig.lang}&accent=${mergedConfig.accent}&dark=${mergedConfig.dark}`
-    );
+    const embedUrlBase = new URL(runtimeConfig.public.domainUrl);
+    const embedSearch = new URLSearchParams();
+
+    embedSearch.set("id", server.id);
+    embedUrlBase.pathname = "/embed";
+    embedUrlBase.search = embedSearch.toString();
 
     return {
       title: `Utang - ${server.name} :: naoTimesUI`,
@@ -185,7 +189,7 @@ function getHeadInfo(server?: SearchServer): Parameters<typeof useHeadSafe>[0] {
         },
         {
           property: "og:url",
-          content: embedUrl.toString(),
+          content: embedUrlBase.toString(),
         },
         {
           property: "og:site_name",

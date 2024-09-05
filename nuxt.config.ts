@@ -178,6 +178,7 @@ export default defineNuxtConfig({
       cdnUrl: import.meta.env.CDN_URL || import.meta.env.API_URL || "https://api.naoti.me",
       meiliUrl: import.meta.env.MEILI_URL || "https://msapi.naoti.me",
       meiliKey: import.meta.env.MEILI_KEY,
+      domainUrl: import.meta.env.DOMAIN_URL || "https://panel.naoti.me",
     },
     meiliPrivateKey: import.meta.env.MEILI_KEY,
     apiPrivateKey: import.meta.env.API_KEY,
