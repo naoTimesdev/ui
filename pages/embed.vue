@@ -185,7 +185,7 @@ function getHeadInfo(server?: SearchServer): Parameters<typeof useHeadSafe>[0] {
         },
         {
           property: "og:image",
-          content: `?name=${server.name}&count=34&total=34`,
+          content: ogAPI.toString(),
         },
         {
           property: "og:url",
