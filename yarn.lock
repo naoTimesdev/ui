@@ -1118,12 +1118,30 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@iconify-json/lucide@npm:^1.2.2":
+  version: 1.2.2
+  resolution: "@iconify-json/lucide@npm:1.2.2"
+  dependencies:
+    "@iconify/types": "npm:*"
+  checksum: 10c0/6b71e1aa46e8959c676a827c6b72b09a5b398245b8f9c7b9dc65397ba4b88e42986c17676618c52b93cda4c391fd43294c0f051db2f607ed63829463be186e76
+  languageName: node
+  linkType: hard
+
 "@iconify-json/radix-icons@npm:^1.2.0":
   version: 1.2.0
   resolution: "@iconify-json/radix-icons@npm:1.2.0"
   dependencies:
     "@iconify/types": "npm:*"
   checksum: 10c0/01e32f2f42d20cceb85882a4edb30448ff3640d2a27ebb6a4501c98487a13807e57a880f25bef9abf5c849db10225d02567050858425d68deca58ca8303ebd53
+  languageName: node
+  linkType: hard
+
+"@iconify-json/simple-icons@npm:^1.2.1":
+  version: 1.2.1
+  resolution: "@iconify-json/simple-icons@npm:1.2.1"
+  dependencies:
+    "@iconify/types": "npm:*"
+  checksum: 10c0/93e6b98267f7bf52ec3859968da6e8e7a4d39544a0c04adc6937ba8dbef5dbfd3b4797f876da7fb6ef352268d764d04607228211b8c4771d455a1386dc4c5295
   languageName: node
   linkType: hard
 
@@ -6906,15 +6924,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"lucide-vue-next@npm:^0.438.0":
-  version: 0.438.0
-  resolution: "lucide-vue-next@npm:0.438.0"
-  peerDependencies:
-    vue: ">=3.0.1"
-  checksum: 10c0/b944d077c2a2499236db65d4d76fd0d856fd8a5e8f341fc236cddded280899b29a59112c8de6ed7b64519a62def19871249e8f696b8476db5f536722141d7816
-  languageName: node
-  linkType: hard
-
 "magic-regexp@npm:^0.8.0":
   version: 0.8.0
   resolution: "magic-regexp@npm:0.8.0"
@@ -7346,7 +7355,9 @@ __metadata:
     "@eslint/eslintrc": "npm:^3.1.0"
     "@eslint/js": "npm:^9.9.1"
     "@iconify-json/heroicons": "npm:^1.2.0"
+    "@iconify-json/lucide": "npm:^1.2.2"
     "@iconify-json/radix-icons": "npm:^1.2.0"
+    "@iconify-json/simple-icons": "npm:^1.2.1"
     "@nuxt/fonts": "npm:^0.7.2"
     "@nuxt/icon": "npm:^1.5.0"
     "@nuxt/image": "npm:^1.8.0"
@@ -7371,7 +7382,6 @@ __metadata:
     eslint-plugin-unicorn: "npm:^55.0.0"
     eslint-plugin-vue: "npm:^9.27.0"
     graphql-tag: "npm:^2.12.6"
-    lucide-vue-next: "npm:^0.438.0"
     nuxt: "npm:^3.13.1"
     pinia: "npm:^2.2.2"
     pinia-plugin-persistedstate: "npm:^4.0.0"
