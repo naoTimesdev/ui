@@ -334,6 +334,9 @@ onBeforeUnmount(() => {
 });
 
 useHeadSafe(getHeadInfo(serverData.value ?? undefined));
+definePageMeta({
+  colorMode: "light",
+});
 </script>
 
 <style lang="postcss" scoped>
