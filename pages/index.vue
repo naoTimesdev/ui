@@ -1,5 +1,5 @@
 <template>
-  <div class="grid grid-cols-1 grid-rows-1 lg:grid-cols-2">
+  <div v-if="loading" class="grid grid-cols-1 grid-rows-1 lg:grid-cols-2">
     <div
       class="hidden h-screen flex-col justify-between border-r border-zinc-300 bg-zinc-100 dark:border-zinc-800 dark:bg-zinc-900 lg:flex"
     >
@@ -43,10 +43,10 @@
       </div>
       <div class="mt-4 flex w-full flex-col justify-center">
         <hr class="mx-auto mb-4 w-[60%] border-zinc-200 dark:border-zinc-700" />
-        <UiButton :as="nuxtLink" :href="discordAuth" variant="outline" size="lg" class="mx-auto max-w-[50%]">
+        <UIButton :as="nuxtLink" :href="discordAuth" variant="outline" size="lg" class="mx-auto max-w-[50%]">
           <Icon name="i-simple-icons-discord" class="mr-3 h-6 w-6" />
           {{ $t("login.discord") }}
-        </UiButton>
+        </UIButton>
       </div>
       <hr class="mx-auto mt-4 w-[60%] border-zinc-200 dark:border-zinc-700" />
       <div class="mx-auto mt-4 flex w-full flex-row justify-center">
@@ -57,20 +57,58 @@
 </template>
 
 <script setup lang="ts">
+const loading = ref(false);
 const currentYear = computed(() => new Date().getFullYear());
 
 const nuxtLink = resolveComponent("NuxtLink");
 const localePath = useLocalePath();
 const route = useRoute();
+const router = useRouter();
+const auth = useAuth();
 const { makeUrl } = useServerUrl();
 
 const discordAuth = computed(() => {
   // Check redirect params for redirect URL
   const queryRedirect = route.query.redirect ?? localePath("/dashboard");
 
-  const recorrectUrl = encodeURIComponent(decodeURIComponent(queryRedirect));
+  const queryParams =
+    (Array.isArray(queryRedirect) ? queryRedirect[0]?.toString() : queryRedirect) ?? localePath("/dashboard");
+
+  const recorrectUrl = encodeURIComponent(decodeURIComponent(queryParams));
 
   return makeUrl(`/oauth2/discord/authorize?redirect_url=${recorrectUrl}`);
+});
+
+onMounted(() => {
+  console.log("Checking user status...", route.query.redirect);
+
+  // Check if user is already logged in
+  if (route.query.redirect) {
+    // Since it has redirect, it means checks fails and we need to login
+    loading.value = true;
+
+    return;
+  }
+
+  // Do check status
+  console.log("Checking user status...");
+  auth
+    .getUser()
+    .then((user) => {
+      console.log("User status checked.", user);
+
+      if (user) {
+        // Redirect to dashboard
+        router.push("/dashboard");
+      } else {
+        loading.value = true;
+      }
+    })
+    .catch((err) => {
+      console.error(err);
+
+      loading.value = true;
+    });
 });
 </script>
 

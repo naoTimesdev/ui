@@ -45,7 +45,11 @@ onMounted(async () => {
       errorMessage.value = t("auth.fails.general");
     }
   } catch (error) {
-    errorMessage.value = error.message;
+    if (error instanceof GraphQLSimpleError) {
+      errorMessage.value = error.message;
+    } else {
+      errorMessage.value = t("auth.fails.general");
+    }
   }
 });
 </script>

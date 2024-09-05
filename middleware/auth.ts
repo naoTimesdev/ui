@@ -1,14 +1,12 @@
 const publicRoutes: string[] = ["/", "/callback/discord"];
 
 export default defineNuxtRouteMiddleware(async (to) => {
-  if (import.meta.server) {
-    return;
-  }
-
   const auth = useAuth();
   const redirect = encodeURIComponent(to.fullPath);
 
   try {
+    console.log("Running auth middleware", to.path);
+
     if (!publicRoutes.includes(to.path)) {
       return navigateTo(`/?redirect=${redirect}`);
     }

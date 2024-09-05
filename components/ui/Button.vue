@@ -36,7 +36,7 @@ const buttonVariants = cva(
 interface Props {
   variant?: NonNullable<Parameters<typeof buttonVariants>[0]>["variant"];
   size?: NonNullable<Parameters<typeof buttonVariants>[0]>["size"];
-  as?: string;
+  as?: ReturnType<typeof resolveComponent>;
 }
 
 // eslint-disable-next-line vue/define-macros-order

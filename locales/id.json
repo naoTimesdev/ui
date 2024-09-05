@@ -2,7 +2,11 @@
   "app": {
     "tagline": "Aplikasi untuk membantu tracking garapan fansubber",
     "footer": "Kopikanan © {year} naoTimes",
-    "source": "Sumber kode"
+    "source": "Sumber kode",
+    "unavailable": {
+      "header": "Aplikasi tidak tersedia",
+      "message": "Peladen yang melayani naoTimes sedang offline, mohon tunggu..."
+    }
   },
   "login": {
     "header": "Masuk ke naoTimes",

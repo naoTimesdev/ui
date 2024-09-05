@@ -2,7 +2,11 @@
   "app": {
     "tagline": "An app to help track Fansubber's work",
     "footer": "Copyright © {year} naoTimes",
-    "source": "Source code"
+    "source": "Source code",
+    "unavailable": {
+      "header": "App not available",
+      "message": "The API serving naoTimes is currently offline, please wait..."
+    }
   },
   "login": {
     "header": "Login to naoTimes",

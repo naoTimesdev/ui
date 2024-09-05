@@ -158,12 +158,8 @@ export default defineNuxtConfig({
     },
   },
   imports: {
-    imports: [
-      {
-        name: "FetchError",
-        from: "ofetch",
-      },
-    ],
+    autoImport: true,
+    scan: true,
   },
   runtimeConfig: {
     public: {
