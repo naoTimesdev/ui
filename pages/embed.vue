@@ -61,8 +61,6 @@ const serverId = computed(() => {
   const srvId = getFirst(id);
 
   if (srvId && isDiscordSnowflake(srvId)) {
-    console.log("Discord snowflake detected", srvId);
-
     return {
       id: srvId,
       kind: "discord",
@@ -76,9 +74,12 @@ const serverId = computed(() => {
 });
 
 function isDiscordSnowflake(value: string): boolean {
-  const parseBigInt = Number.parseInt(value, 10);
+  // Check if have alphabet
+  if (value.match(/[a-zA-Z]/)) {
+    return false;
+  }
 
-  console.log("Parsing", parseBigInt);
+  const parseBigInt = Number.parseInt(value, 10);
 
   if (Number.isNaN(parseBigInt)) {
     return false;
@@ -286,10 +287,13 @@ function propagateEventChange(event: MessageEvent<string>) {
 }
 
 onMounted(() => {
-  dispatchNewHeight();
+  const fromHash = new URLSearchParams(window.location.hash.replace("#", ""));
+  const hashLang = fromHash.get("lang");
+  const hasAccent = fromHash.get("accent");
+  const hashDark = fromHash.get("dark");
 
   // Check dark mode
-  const darkify = mergedConfig.dark || defaultParams.dark;
+  const darkify = hashDark ? castBooleanNull(hashDark) : mergedConfig.dark || defaultParams.dark;
 
   if (darkify && castBooleanNull(darkify)) {
     window.document.documentElement.classList.add("dark");
@@ -297,21 +301,31 @@ onMounted(() => {
     window.document.documentElement.classList.remove("dark");
   }
 
-  // Change router URL without reloading
-  if (serverData.value) {
-    console.log("Replacing router", serverId.value.id);
-
-    router.replace({
-      query: {
-        id: serverData.value.id,
-      },
-      // Add hash
-      hash: `#lang=${mergedConfig.lang}&accent=${mergedConfig.accent}&dark=${darkify}`,
-    });
+  if (hasAccent && ValidAccent.includes(hasAccent as ColorAccent)) {
+    embedAccent.value = hasAccent as ColorAccent;
   }
 
-  window.addEventListener("hashchange", propagateHashChange);
-  window.addEventListener("message", propagateEventChange);
+  if (hashLang) {
+    embedLang.value = hashLang;
+  }
+
+  nextTick(() => {
+    dispatchNewHeight();
+
+    // Change router URL without reloading
+    if (serverData.value) {
+      router.replace({
+        query: {
+          id: serverData.value.id,
+        },
+        // Add hash
+        hash: `#lang=${mergedConfig.lang}&accent=${mergedConfig.accent}&dark=${darkify}`,
+      });
+    }
+
+    window.addEventListener("hashchange", propagateHashChange);
+    window.addEventListener("message", propagateEventChange);
+  });
 });
 
 onBeforeUnmount(() => {

@@ -20,6 +20,12 @@ const locales: LocaleObject[] = [
     name: "English",
     file: "en.json",
   },
+  {
+    code: "ja",
+    language: "ja-JP",
+    name: "日本語",
+    file: "ja.json",
+  },
 ];
 const defaultLocale = "id";
 

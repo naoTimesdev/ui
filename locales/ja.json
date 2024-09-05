@@ -1,0 +1,34 @@
+{
+  "embed": {
+    "error": {
+      "notFound": "サーバーが見つかりません",
+      "noProjects": "進行中のプロジェクトはありません",
+      "failedProjects": "プロジェクトの取得に失敗しました"
+    },
+    "card": {
+      "seasonYear": {
+        "winter": "{year}年冬",
+        "fall": "{year}年春",
+        "summer": "{year}年夏",
+        "spring": "{year}年秋"
+      },
+      "lastUpdate": "最終更新{0}",
+      "roles": {
+        "TL": "翻訳",
+        "TLC": "翻訳チェック",
+        "ENC": "符号づけ",
+        "ED": "編集",
+        "TM": "タイミング",
+        "TS": "組版",
+        "QC": "品証"
+      },
+      "numberNeeds": "第{0}話の必要",
+      "number": "第{0}話",
+      "waitRelease": "発売を待つ。。。",
+      "noProgress": "進展なし",
+      "notAired": "まだ放送されていない",
+      "showEpisodes": "次の{0}つのエピソードを参照。。。",
+      "hideEpisodes": "閉める。。。"
+    }
+  }
+}

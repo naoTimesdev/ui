@@ -55,7 +55,9 @@
               {{ firstEpisode.delayReason }}
             </span>
           </span>
-          <time :datetime="project.updated">{{ $t("embed.card.lastUpdate", [formatUpdated]) }}</time>
+          <time :datetime="project.updated">{{
+            $t("embed.card.lastUpdate", [formatUpdated], { locale: language })
+          }}</time>
         </div>
       </div>
       <div
