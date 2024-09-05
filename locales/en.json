@@ -1,1 +1,21 @@
-{}
+{
+  "app": {
+    "tagline": "An app to help track Fansubber's work",
+    "footer": "Copyright © {year} naoTimes",
+    "source": "Source code"
+  },
+  "login": {
+    "header": "Login to naoTimes",
+    "discord": "Login with Discord",
+    "connect": "Or",
+    "welcome": "Welcome to the naoTimes Panel, connect your Discord account with naoTimes to access your new Dashboard"
+  },
+  "auth": {
+    "fails": {
+      "loading": "Failed",
+      "missing": "Unable to get required parameters",
+      "general": "Failed to authenticate"
+    },
+    "loading": "Authenticating"
+  }
+}

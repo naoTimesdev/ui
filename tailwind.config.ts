@@ -252,5 +252,6 @@ export default {
     "text-2xl",
     "text-3xl",
     "text-4xl",
+    "variation-*",
   ],
 } as Partial<Config>;

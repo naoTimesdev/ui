@@ -1,1 +1,21 @@
-{}
+{
+  "app": {
+    "tagline": "Aplikasi untuk membantu tracking garapan fansubber",
+    "footer": "Kopikanan © {year} naoTimes",
+    "source": "Sumber kode"
+  },
+  "login": {
+    "header": "Masuk ke naoTimes",
+    "discord": "Masuk dengan Discord",
+    "connect": "Atau",
+    "welcome": "Selamat datang di panel naoTimes, hubungkan akun Discord anda dengan naoTimes untuk mengakses Dashboard baru anda"
+  },
+  "auth": {
+    "fails": {
+      "loading": "Gagal",
+      "missing": "Tidak dapat menemukan parameter yang dibutuhkan",
+      "general": "Tidak dapat mengautentikasi"
+    },
+    "loading": "Mengautentikasi"
+  }
+}

@@ -41,14 +41,15 @@ export default defineNuxtConfig({
   devtools: { enabled: true },
   modules: [
     "@nuxtjs/tailwindcss",
-    "shadcn-nuxt",
     "@nuxtjs/color-mode",
     "@nuxtjs/i18n",
+    "radix-vue/nuxt",
     "@nuxt/fonts",
     "@nuxt/icon",
     "@nuxt/image",
     "@vueuse/nuxt",
     "@pinia/nuxt",
+    "pinia-plugin-persistedstate/nuxt",
     "@nuxtjs/apollo",
   ],
   app: {
@@ -170,7 +171,7 @@ export default defineNuxtConfig({
     },
   },
   i18n: {
-    strategy: "prefix_except_default",
+    strategy: "no_prefix",
     baseUrl: import.meta.env.DOMAIN_URL || "https://panel.naoti.me",
     detectBrowserLanguage: false,
     langDir: "locales",
@@ -210,17 +211,6 @@ export default defineNuxtConfig({
       },
     ],
   },
-  shadcn: {
-    /**
-     * Prefix for all the imported component
-     */
-    prefix: "UI",
-    /**
-     * Directory that the component lives in.
-     * @default "./components/ui"
-     */
-    componentDir: "./components/UI",
-  },
   colorMode: {
     preference: "system",
     fallback: "dark",
@@ -243,6 +233,10 @@ export default defineNuxtConfig({
         provider: "~/providers/img-none.ts",
       },
     },
+  },
+  piniaPluginPersistedstate: {
+    storage: "localStorage",
+    key: "naotimesui:%id",
   },
   hooks: {
     "nitro:config": () => {

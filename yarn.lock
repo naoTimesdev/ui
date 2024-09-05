@@ -1843,13 +1843,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@oxc-parser/wasm@npm:^0.1.0":
-  version: 0.1.0
-  resolution: "@oxc-parser/wasm@npm:0.1.0"
-  checksum: 10c0/ffa5fa496d99ad0df808d0f74447427b8b26a9be9852b093a3914a4fc19c266b866ec81c714ae9242640c21c6ec859623f979a15cf05d89851ae174fadad2d90
-  languageName: node
-  linkType: hard
-
 "@parcel/watcher-android-arm64@npm:2.4.1":
   version: 2.4.1
   resolution: "@parcel/watcher-android-arm64@npm:2.4.1"
@@ -4348,6 +4341,13 @@ __metadata:
   version: 0.1.4
   resolution: "deep-is@npm:0.1.4"
   checksum: 10c0/7f0ee496e0dff14a573dc6127f14c95061b448b87b995fc96c017ce0a1e66af1675e73f1d6064407975bc4ea6ab679497a29fff7b5b9c4e99cb10797c1ad0b4c
+  languageName: node
+  linkType: hard
+
+"deep-pick-omit@npm:^1.2.0":
+  version: 1.2.0
+  resolution: "deep-pick-omit@npm:1.2.0"
+  checksum: 10c0/2f2d6e6fa5c39aff995420df29a0ae7d29717233ef4ecb6ddf88ebe04b7cd108b6176267ac25f37e1a801ac0a69c3545841a9719e2decd79bba6191fc826d0f2
   languageName: node
   linkType: hard
 
@@ -7316,14 +7316,15 @@ __metadata:
     eslint-plugin-prettier: "npm:^5.2.1"
     eslint-plugin-unicorn: "npm:^55.0.0"
     eslint-plugin-vue: "npm:^9.27.0"
+    graphql-tag: "npm:^2.12.6"
     lucide-vue-next: "npm:^0.438.0"
     nuxt: "npm:^3.13.0"
     pinia: "npm:^2.2.2"
+    pinia-plugin-persistedstate: "npm:^4.0.0"
     postcss-js: "npm:^4.0.1"
     prettier: "npm:^3.3.3"
     prettier-plugin-tailwindcss: "npm:^0.6.6"
     radix-vue: "npm:^1.9.5"
-    shadcn-nuxt: "npm:^0.10.4"
     tailwind-merge: "npm:^2.5.2"
     tailwindcss-animate: "npm:^1.0.7"
     typescript: "npm:^5.5.4"
@@ -8101,6 +8102,26 @@ __metadata:
   version: 2.3.0
   resolution: "pify@npm:2.3.0"
   checksum: 10c0/551ff8ab830b1052633f59cb8adc9ae8407a436e06b4a9718bcb27dc5844b83d535c3a8512b388b6062af65a98c49bdc0dd523d8b2617b188f7c8fee457158dc
+  languageName: node
+  linkType: hard
+
+"pinia-plugin-persistedstate@npm:^4.0.0":
+  version: 4.0.0
+  resolution: "pinia-plugin-persistedstate@npm:4.0.0"
+  dependencies:
+    "@nuxt/kit": "npm:^3.13.0"
+    deep-pick-omit: "npm:^1.2.0"
+    defu: "npm:^6.1.4"
+    destr: "npm:^2.0.3"
+  peerDependencies:
+    "@pinia/nuxt": ">=0.5.0"
+    pinia: ">=2.0.0"
+  peerDependenciesMeta:
+    "@pinia/nuxt":
+      optional: true
+    pinia:
+      optional: true
+  checksum: 10c0/864f51b36a46d2f79e3e933fee2eb79e9b9934d50b58f00b2a2f4daca9dea93445daa8547d28adf1c898b609ba50566047bda2094a2673d9fcc44d633b5d5e14
   languageName: node
   linkType: hard
 
@@ -9315,16 +9336,6 @@ __metadata:
   version: 1.2.0
   resolution: "setprototypeof@npm:1.2.0"
   checksum: 10c0/68733173026766fa0d9ecaeb07f0483f4c2dc70ca376b3b7c40b7cda909f94b0918f6c5ad5ce27a9160bdfb475efaa9d5e705a11d8eaae18f9835d20976028bc
-  languageName: node
-  linkType: hard
-
-"shadcn-nuxt@npm:^0.10.4":
-  version: 0.10.4
-  resolution: "shadcn-nuxt@npm:0.10.4"
-  dependencies:
-    "@nuxt/kit": "npm:^3.11.2"
-    "@oxc-parser/wasm": "npm:^0.1.0"
-  checksum: 10c0/a6dff811de5227a80985d567e08725c2a16b458998e4efd2d7c7635da2cf0965353e128eb73225fc29f113c572d9e0936c39ac423ebf5d830ad3a57fa617a1a3
   languageName: node
   linkType: hard
 

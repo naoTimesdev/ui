@@ -7,15 +7,14 @@
   "readme": "README.md",
   "scripts": {
     "build": "nuxt build",
-    "dev": "nuxt dev --port 5561",
+    "dev": "nuxt dev --port 5561 --host 127.0.0.1",
     "generate": "nuxt generate",
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare",
     "lint": "eslint .",
     "lint:fix": "eslint --fix .",
     "prettier": "prettier --check .",
-    "prettier:fix": "prettier --write .",
-    "shadcn": "npx shadcn-vue add"
+    "prettier:fix": "prettier --write ."
   },
   "dependencies": {
     "@nuxt/fonts": "^0.7.2",
@@ -31,8 +30,8 @@
     "lucide-vue-next": "^0.438.0",
     "nuxt": "^3.13.0",
     "pinia": "^2.2.2",
+    "pinia-plugin-persistedstate": "^4.0.0",
     "radix-vue": "^1.9.5",
-    "shadcn-nuxt": "^0.10.4",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7",
     "vue": "latest"
@@ -52,6 +51,7 @@
     "eslint-plugin-prettier": "^5.2.1",
     "eslint-plugin-unicorn": "^55.0.0",
     "eslint-plugin-vue": "^9.27.0",
+    "graphql-tag": "^2.12.6",
     "postcss-js": "^4.0.1",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.6",
