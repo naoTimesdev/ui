@@ -152,9 +152,13 @@ function getHeadInfo(server?: SearchServer): Parameters<typeof useHeadSafe>[0] {
   if (server) {
     const ogAPI = new URL("https://og-api.naoti.me/large");
 
-    ogAPI.searchParams.set("name", server.name);
-    ogAPI.searchParams.set("count", latestProjects.value.length.toString());
-    ogAPI.searchParams.set("total", projectsData.value?.length.toString() ?? "0");
+    const searchParams = new URLSearchParams();
+
+    searchParams.set("name", server.name);
+    searchParams.set("count", latestProjects.value.length.toString());
+    searchParams.set("total", projectsData.value?.length.toString() ?? "0");
+
+    ogAPI.search = searchParams.toString();
 
     const embedUrl = new URL(
       `https://panel.naoti.me/embed?id=${server.id}#lang=${mergedConfig.lang}&accent=${mergedConfig.accent}&dark=${mergedConfig.dark}`
