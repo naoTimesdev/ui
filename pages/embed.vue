@@ -32,13 +32,18 @@ const defaultParams = {
 };
 
 const route = useRoute();
+const router = useRouter();
 const { id, accent, dark, lang } = route.query;
 const meili = useMeili();
 
 const embedLang = ref("id");
 const embedAccent = ref<ColorAccent>("green");
 
-const getFirst = (value: string | string[] | undefined): string => {
+const getFirst = (value: string | string[] | undefined): string | undefined => {
+  if (value === undefined || value === null) {
+    return;
+  }
+
   if (Array.isArray(value)) {
     return value[0];
   }
@@ -47,9 +52,9 @@ const getFirst = (value: string | string[] | undefined): string => {
 };
 
 const mergedConfig = Object.assign({}, defaultParams, {
-  lang: getFirst(lang),
-  accent: getFirst(accent),
-  dark: getFirst(dark),
+  lang: getFirst(lang) ?? defaultParams.lang,
+  accent: getFirst(accent) ?? defaultParams.accent,
+  dark: getFirst(dark) ?? defaultParams.dark,
 });
 
 const serverId = computed(() => {
@@ -282,6 +287,28 @@ function propagateEventChange(event: MessageEvent<string>) {
 
 onMounted(() => {
   dispatchNewHeight();
+
+  // Check dark mode
+  const darkify = mergedConfig.dark || defaultParams.dark;
+
+  if (darkify && castBooleanNull(darkify)) {
+    window.document.documentElement.classList.add("dark");
+  } else if (darkify && !castBooleanNull(darkify)) {
+    window.document.documentElement.classList.remove("dark");
+  }
+
+  // Change router URL without reloading
+  if (serverData.value) {
+    console.log("Replacing router", serverId.value.id);
+
+    router.replace({
+      query: {
+        id: serverData.value.id,
+      },
+      // Add hash
+      hash: `#lang=${mergedConfig.lang}&accent=${mergedConfig.accent}&dark=${darkify}`,
+    });
+  }
 
   window.addEventListener("hashchange", propagateHashChange);
   window.addEventListener("message", propagateEventChange);
