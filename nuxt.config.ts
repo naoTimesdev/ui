@@ -167,6 +167,13 @@ export default defineNuxtConfig({
     autoImport: true,
     scan: true,
   },
+  components: [
+    {
+      path: "~/components/ui",
+      prefix: "UI",
+    },
+    "~/components",
+  ],
   runtimeConfig: {
     public: {
       apiUrl: import.meta.env.API_URL || "https://api.naoti.me",
