@@ -6,8 +6,8 @@
       <div class="flex flex-col p-8">
         <div class="flex flex-row items-center gap-2">
           <NuxtImg src="/assets/images/nt192.png" class="logo-nt-glow size-8 object-contain" />
-          <h1 class="font-variable select-none text-2xl variation-weight-semibold">
-            <span class="font-variable variation-weight-light">nao</span>Times
+          <h1 class="font-variable select-none text-2xl variation-weight-extrabold">
+            <span class="font-variable variation-weight-normal">nao</span><span>Times</span>
           </h1>
         </div>
         <p class="font-variable mt-2 text-sm text-muted-foreground">
@@ -34,7 +34,7 @@
     </div>
     <div class="mx-auto flex h-screen flex-col justify-center p-8">
       <div class="flex flex-col items-center gap-2">
-        <NuxtImg src="/assets/images/nt192.png" class="logo-nt-glow mb-4 hidden size-24 object-contain lg:block" />
+        <NuxtImg src="/assets/images/nt192.png" class="logo-nt-glow mb-4 block size-24 object-contain lg:hidden" />
         <h1 class="font-variable text-2xl variation-weight-semibold">
           {{ $t("login.header") }}
         </h1>

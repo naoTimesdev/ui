@@ -7,7 +7,7 @@
         'animate-bounce': !errorMessage,
       }"
     />
-    <h1 class="font-variable mt-2 text-3xl variation-weight-bold">
+    <h1 class="font-variable mt-2 text-2xl variation-weight-bold lg:text-3xl">
       {{ errorMessage ? $t("auth.fails.loading") : $t("auth.loading") }}
     </h1>
     <p v-if="errorMessage" class="mt-1 text-red-600 dark:text-red-400">
