@@ -25,6 +25,8 @@
 </template>
 
 <script setup lang="ts">
+import type { LocationQueryValue } from "vue-router";
+
 const defaultParams = {
   lang: "id",
   accent: "green",
@@ -39,16 +41,18 @@ const meili = useMeili();
 const embedLang = ref("id");
 const embedAccent = ref<ColorAccent>("green");
 
-const getFirst = (value: string | string[] | undefined): string | undefined => {
+const getFirst = (
+  value: string | string[] | LocationQueryValue | LocationQueryValue[] | undefined
+): string | undefined => {
   if (value === undefined || value === null) {
     return;
   }
 
   if (Array.isArray(value)) {
-    return value[0];
+    return value[0] ?? undefined;
   }
 
-  return value || "";
+  return value ?? "";
 };
 
 const mergedConfig = Object.assign({}, defaultParams, {
