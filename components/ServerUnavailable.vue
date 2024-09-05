@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-screen flex-col items-center justify-center">
+  <div class="flex h-screen flex-col items-center justify-center px-2">
     <Icon name="i-heroicons-server-stack" class="size-16 animate-pulse p-4" />
     <h1 class="font-variable mt-4 text-center text-3xl variation-weight-bold">
       {{ $t("app.unavailable.header") }}

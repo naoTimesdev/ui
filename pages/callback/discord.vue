@@ -1,5 +1,5 @@
 <template>
-  <div class="flex h-screen flex-col items-center justify-center">
+  <div class="flex h-screen flex-col items-center justify-center px-2">
     <Icon
       name="i-simple-icons-discord"
       class="size-16 p-4"
@@ -51,5 +51,10 @@ onMounted(async () => {
       errorMessage.value = t("auth.fails.general");
     }
   }
+});
+
+useHeadSafe({
+  title: "Discord Callback",
+  titleTemplate: "%s :: naoTimesUI",
 });
 </script>
