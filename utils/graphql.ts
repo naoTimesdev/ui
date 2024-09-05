@@ -1,4 +1,3 @@
-import type { NuxtError } from "#app";
 import type { GraphQLFormattedError } from "graphql";
 
 type Nullable<T> = T | null;
@@ -9,7 +8,7 @@ export type APIKey = `nsh_${string}`;
 export type UserKindGQL = "USER" | "ADMIN" | "OWNER";
 
 export interface ImageMetadataGQL {
-  url: string;
+  url?: string;
 }
 
 export interface UserGQL {

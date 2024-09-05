@@ -1,1 +1,3 @@
-<template>TODO</template>
+<template>
+  <NavigationBar />
+</template>

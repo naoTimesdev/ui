@@ -154,7 +154,14 @@ export default tseslint.config(
       // Taken from vue/eslint-config-typescript
       "no-unsued-vars": "off",
       "no-undef": "off",
-      "@typescript-eslint/no-unused-vars": "warn",
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          // ignore _XXX
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
+      ],
     },
   },
   {

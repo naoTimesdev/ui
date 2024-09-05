@@ -164,6 +164,7 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiUrl: import.meta.env.API_URL || "https://api.naoti.me",
+      cdnUrl: import.meta.env.CDN_URL || import.meta.env.API_URL || "https://api.naoti.me",
     },
   },
   i18n: {
@@ -233,6 +234,9 @@ export default defineNuxtConfig({
   piniaPluginPersistedstate: {
     storage: "localStorage",
     key: "naotimesui:%id",
+  },
+  experimental: {
+    buildCache: true,
   },
   hooks: {
     "nitro:config": () => {

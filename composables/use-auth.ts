@@ -41,6 +41,8 @@ const useAuth = defineStore("auth", () => {
   async function getUser() {
     const tokenFetch = await getToken();
 
+    console.log("Getting user with token", tokenFetch);
+
     if (!tokenFetch) {
       return;
     }

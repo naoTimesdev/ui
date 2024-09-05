@@ -30,9 +30,25 @@ export const useServerUrl = () => {
     return `${originUrl.value}/${path}`;
   };
 
+  const makeCdnUrl = (path: string) => {
+    const cdnUrl = runtimeConf.public.cdnUrl;
+
+    if (path.startsWith("http")) {
+      return path;
+    }
+
+    // If the path is an absolute path, we need to prepend the origin
+    if (path.startsWith("/")) {
+      return `${cdnUrl}${path}`;
+    }
+
+    return `${cdnUrl}/${path}`;
+  };
+
   return {
     origin: originUrl,
     sameDomain,
     makeUrl,
+    makeCdnUrl,
   };
 };
