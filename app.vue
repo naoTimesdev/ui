@@ -12,9 +12,10 @@
 const { pingServer } = useServerStatus();
 const colorMode = useColorMode();
 
+const route = useRoute();
 const timeout = ref<number | NodeJS.Timeout>();
 const retry = ref<number>(0);
-const isReady = ref<boolean | null>(null);
+const isReady = ref<boolean | null>(route.path === "/embed" ? true : null);
 
 function callback() {
   pingServer()
@@ -57,7 +58,9 @@ function backoff() {
 }
 
 onMounted(() => {
-  callback();
+  if (route.path !== "/embed") {
+    callback();
+  }
 });
 
 onBeforeUnmount(() => {
