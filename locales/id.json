@@ -31,9 +31,9 @@
     "card": {
       "seasonYear": {
         "winter": "Musim Dingin {year}",
-        "fall": "Musim Gugur {year}",
+        "spring": "Musim Semi {year}",
         "summer": "Musim Panas {year}",
-        "spring": "Musim Semi {year}"
+        "fall": "Musim Gugur {year}"
       },
       "lastUpdate": "Diperbarui {0}",
       "roles": {
@@ -51,7 +51,9 @@
       "noProgress": "Belum ada progres",
       "notAired": "Belum tayang",
       "showEpisodes": "Lihat {0} episode selanjutnya...",
-      "hideEpisodes": "Tutup..."
+      "hideEpisodes": "Tutup...",
+      "airing": "Tayang {0}",
+      "aired": "Tayang {0}"
     }
   },
   "timeAgo": {

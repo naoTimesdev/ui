@@ -28,7 +28,9 @@
       "noProgress": "بلوم اد کماجوان",
       "notAired": "بلوم دتايڠكن لاڬي",
       "showEpisodes": "ليهت {0} ايڤيسود سلنجوتڽ...",
-      "hideEpisodes": "توتوڤ..."
+      "hideEpisodes": "توتوڤ...",
+      "aired": "دتايڠكن {0}",
+      "airing": "سيارن {0}"
     }
   },
   "timeAgo": {

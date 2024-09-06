@@ -28,7 +28,9 @@
       "noProgress": "Belum ada kemajuan",
       "notAired": "Belum ditayangkan",
       "showEpisodes": "Lihat {0} episode selanjutnya...",
-      "hideEpisodes": "Tutup..."
+      "hideEpisodes": "Tutup...",
+      "aired": "Tayang {0}",
+      "airing": "Tayang {0}"
     }
   },
   "timeAgo": {

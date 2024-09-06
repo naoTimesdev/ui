@@ -31,9 +31,9 @@
     "card": {
       "seasonYear": {
         "winter": "Winter {year}",
-        "fall": "Fall {year}",
+        "spring": "Spring {year}",
         "summer": "Summer {year}",
-        "spring": "Spring {year}"
+        "fall": "Fall {year}"
       },
       "lastUpdate": "Updated {0}",
       "roles": {
@@ -51,7 +51,9 @@
       "noProgress": "No progress",
       "notAired": "Not aired yet",
       "showEpisodes": "See next {0} episode...",
-      "hideEpisodes": "Close..."
+      "hideEpisodes": "Close...",
+      "airing": "Airing {0}",
+      "aired": "Aired {0}"
     }
   },
   "timeAgo": {

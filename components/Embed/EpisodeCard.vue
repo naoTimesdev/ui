@@ -8,13 +8,27 @@
     }"
   >
     <div>
-      <span class="font-medium">
-        {{
-          episodeAired && anyProgress && unfinishedStatus.length > 0
-            ? $t("embed.card.numberNeeds", [progress.number], { locale: language })
-            : $t("embed.card.number", [progress.number], { locale: language })
-        }}
-      </span>
+      <div class="">
+        <span class="font-medium">
+          {{
+            episodeAired && anyProgress && unfinishedStatus.length > 0
+              ? $t("embed.card.numberNeeds", [progress.number], { locale: language })
+              : $t("embed.card.number", [progress.number], { locale: language })
+          }}
+        </span>
+        <span
+          v-if="progress.delayReason && !hideReason"
+          class="group relative z-10 mb-1 ml-1 inline-block size-4 align-middle text-blue-400"
+        >
+          <Icon name="i-heroicons-information-circle-solid" class="size-4 text-blue-400" />
+          <span
+            class="pointer-events-none absolute bottom-5 min-w-28 rounded rounded-bl-none border border-blue-400 bg-blue-100 px-2 py-2 text-blue-800 opacity-0 shadow transition-opacity group-hover:opacity-100"
+          >
+            {{ progress.delayReason }}
+          </span>
+        </span>
+      </div>
+
       <template v-if="episodeAired && anyProgress">
         <div v-if="unfinishedStatus.length > 0" class="mt-1 flex flex-wrap gap-1">
           <RolePopup
@@ -31,10 +45,10 @@
         </div>
       </template>
       <template v-else-if="episodeAired && !anyProgress">
-        <template v-if="progress.airDate">
+        <template v-if="formattedAirDate">
           <div>
-            <time :datetime="progress.airDate">
-              {{ progress.airDate }}
+            <time :datetime="formattedAirDate.airDate">
+              {{ $t("embed.card.aired", [formattedAirDate.text], { locale: language }) }}
             </time>
           </div>
           <div>
@@ -43,9 +57,9 @@
         </template>
       </template>
       <div v-else>
-        <div v-if="progress.airDate">
-          <time :datetime="progress.airDate">
-            {{ progress.airDate }}
+        <div v-if="formattedAirDate">
+          <time :datetime="formattedAirDate.airDate">
+            {{ $t("embed.card.airing", [formattedAirDate.text], { locale: language }) }}
           </time>
         </div>
         <div>
@@ -60,9 +74,15 @@
 const props = defineProps<{
   progress: ProjectLatestGQL["progress"][0];
   language: AvailableLocalesType;
+  hideReason?: boolean;
 }>();
 
 const { t } = useI18n();
+
+const nowHeartbeat = useNow({
+  interval: 30_000,
+  controls: false,
+});
 
 const unfinishedStatus = computed(() => {
   return props.progress.statuses.filter((status) => !status.finished);
@@ -80,6 +100,16 @@ const episodeAired = computed(() => {
 });
 const anyProgress = computed(() => {
   return props.progress.statuses.length !== unfinishedStatus.value.length;
+});
+const formattedAirDate = computed(() => {
+  if (props.progress.airDate) {
+    const date = new Date(props.progress.airDate);
+
+    return {
+      text: timeAgo(date, props.language, nowHeartbeat.value),
+      airDate: props.progress.airDate,
+    };
+  }
 });
 
 function localizeRole(role: ProjectLatestGQL["progress"][0]["statuses"][0]["role"]) {

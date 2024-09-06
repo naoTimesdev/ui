@@ -28,7 +28,9 @@
       "noProgress": "Durung ana kemajuan",
       "notAired": "Durung ditayangke",
       "showEpisodes": "Deleng {0} episode sabanjure...",
-      "hideEpisodes": "Tutup..."
+      "hideEpisodes": "Tutup...",
+      "aired": "Ditayangke {0}",
+      "airing": "Siaran {0}"
     }
   },
   "timeAgo": {

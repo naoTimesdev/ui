@@ -8,9 +8,9 @@
     "card": {
       "seasonYear": {
         "winter": "{year}年冬",
-        "fall": "{year}年春",
+        "spring": "{year}年春",
         "summer": "{year}年夏",
-        "spring": "{year}年秋"
+        "fall": "{year}年秋"
       },
       "lastUpdate": "最終更新{0}",
       "roles": {
@@ -28,7 +28,9 @@
       "noProgress": "進展なし",
       "notAired": "まだ放送されていない",
       "showEpisodes": "次の{0}つのエピソードを参照。。。",
-      "hideEpisodes": "閉める。。。"
+      "hideEpisodes": "閉める。。。",
+      "aired": "{0}に放映された",
+      "airing": "{0}に放映"
     }
   },
   "timeAgo": {

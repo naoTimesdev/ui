@@ -10,7 +10,7 @@
         {{ project.title }}
       </h1>
       <div>
-        <EmbedEpisodeCard :progress="firstEpisode" :language="props.language" />
+        <EmbedEpisodeCard :progress="firstEpisode" :language="props.language" hide-reason />
       </div>
       <template v-if="next3Episode.length > 0">
         <div
@@ -50,7 +50,7 @@
           <span v-if="firstEpisode.delayReason" class="group relative z-10 inline-block size-4 text-blue-400">
             <Icon name="i-heroicons-information-circle-solid" class="size-4 text-blue-400" />
             <span
-              class="pointer-events-none absolute bottom-5 w-60 rounded rounded-bl-none border border-blue-400 bg-blue-100 px-2 py-2 text-blue-800 opacity-0 shadow transition-opacity group-hover:opacity-100"
+              class="pointer-events-none absolute bottom-5 min-w-60 rounded rounded-bl-none border border-blue-400 bg-blue-100 px-2 py-2 text-blue-800 opacity-0 shadow transition-opacity group-hover:opacity-100"
             >
               {{ firstEpisode.delayReason }}
             </span>
