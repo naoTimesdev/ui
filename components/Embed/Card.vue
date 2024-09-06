@@ -1,6 +1,9 @@
 <template>
   <div
+    :id="project.id"
     :class="`relative flex flex-row items-start overflow-hidden rounded-md bg-white shadow-md dark:bg-zinc-800 ${borderColor}`"
+    :data-kind="project.kind"
+    :data-count="project.count"
   >
     <div class="relative mb-8 ml-3 mt-3 hidden w-24 flex-none sm:block">
       <NuxtImg :src="posterUrl" width="250" height="325" class="z-0 rounded-md" :alt="`Poster Proyek ${project.id}`" />
@@ -11,6 +14,12 @@
       >
         {{ project.title }}
       </h1>
+      <p
+        v-if="formattedCollaborators"
+        class="font-variable mt-2 break-all text-sm tracking-tighter text-zinc-700 font-variable-italic variation-weight-medium variation-slant-[-10] dark:text-zinc-300"
+      >
+        {{ $t("embed.card.collabWith", [formattedCollaborators], { locale: language }) }}
+      </p>
       <div>
         <EmbedEpisodeCard
           :kind="project.kind"
@@ -133,6 +142,14 @@ const formattedSeason = computed(() => {
       season: getSeason(month),
       year,
     };
+  }
+});
+
+const formattedCollaborators = computed(() => {
+  if (props.project.collaboration && props.project.collaboration.servers.length > 0) {
+    const comma = t("embed.card.comma", [], { locale: props.language });
+
+    return props.project.collaboration.servers.map((server) => server.name).join(comma);
   }
 });
 

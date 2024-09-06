@@ -75,7 +75,9 @@
       "showEpisodes": "See next {0} episode...",
       "hideEpisodes": "Close...",
       "airing": "Airing {0}",
-      "aired": "Aired {0}"
+      "aired": "Aired {0}",
+      "collabWith": "Joint with {0}",
+      "comma": ", "
     }
   },
   "timeAgo": {

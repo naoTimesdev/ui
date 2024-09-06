@@ -75,7 +75,9 @@
       "showEpisodes": "Lihat {0} episode selanjutnya...",
       "hideEpisodes": "Tutup...",
       "airing": "Tayang {0}",
-      "aired": "Tayang {0}"
+      "aired": "Tayang {0}",
+      "collabWith": "Bersama {0}",
+      "comma": ", "
     }
   },
   "timeAgo": {

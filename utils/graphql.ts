@@ -55,6 +55,12 @@ export interface ProjectLatestGQL {
       finished: boolean;
     }[];
   }[];
+  collaboration: Nullable<{
+    servers: {
+      id: UlidGQL;
+      name: string;
+    }[];
+  }>;
   count: number;
   startTime: Nullable<DateTimeGQL>;
   updated: DateTimeGQL;
@@ -116,6 +122,12 @@ const queryLatestProjectServers = `query allProjects($serverId: UlidGQL!) {
             name
           }
           finished
+        }
+      }
+      collaboration {
+        servers {
+          id
+          name
         }
       }
       count

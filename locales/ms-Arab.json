@@ -30,7 +30,9 @@
       "showEpisodes": "ليهت {0} ايڤيسود سلنجوتڽ...",
       "hideEpisodes": "توتوڤ...",
       "aired": "دتايڠكن {0}",
-      "airing": "سيارن {0}"
+      "airing": "سيارن {0}",
+      "collabWith": "دڠن کرجاسام {0}",
+      "comma": "،"
     }
   },
   "timeAgo": {

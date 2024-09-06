@@ -30,7 +30,9 @@
       "showEpisodes": "Lihat {0} episode selanjutnya...",
       "hideEpisodes": "Tutup...",
       "aired": "Tayang {0}",
-      "airing": "Tayang {0}"
+      "airing": "Tayang {0}",
+      "collabWith": "Dengan kerjasama {0}",
+      "comma": ", "
     }
   },
   "timeAgo": {

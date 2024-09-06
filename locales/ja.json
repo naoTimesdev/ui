@@ -52,7 +52,9 @@
       "showEpisodes": "次の{0}つのエピソードを参照。。。",
       "hideEpisodes": "閉める。。。",
       "aired": "{0}に放映された",
-      "airing": "{0}に放映"
+      "airing": "{0}に放映",
+      "collabWith": "{0}と共同",
+      "comma": "、"
     }
   },
   "timeAgo": {

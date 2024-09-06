@@ -30,7 +30,9 @@
       "showEpisodes": "Deleng {0} episode sabanjure...",
       "hideEpisodes": "Tutup...",
       "aired": "Ditayangke {0}",
-      "airing": "Siaran {0}"
+      "airing": "Siaran {0}",
+      "collabWith": "Bebarengan karo {0}",
+      "comma": ", "
     }
   },
   "timeAgo": {
