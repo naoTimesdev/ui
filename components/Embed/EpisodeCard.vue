@@ -59,7 +59,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   progress: ProjectLatestGQL["progress"][0];
-  language: string;
+  language: AvailableLocalesType;
 }>();
 
 const { t } = useI18n();

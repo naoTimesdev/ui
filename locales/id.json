@@ -30,10 +30,10 @@
     },
     "card": {
       "seasonYear": {
-        "winter": "Musim dingin {year}",
-        "fall": "Musim gugur {year}",
-        "summer": "Musim panas {year}",
-        "spring": "Musim semi {year}"
+        "winter": "Musim Dingin {year}",
+        "fall": "Musim Gugur {year}",
+        "summer": "Musim Panas {year}",
+        "spring": "Musim Semi {year}"
       },
       "lastUpdate": "Diperbarui {0}",
       "roles": {
@@ -53,5 +53,41 @@
       "showEpisodes": "Lihat {0} episode selanjutnya...",
       "hideEpisodes": "Tutup..."
     }
+  },
+  "timeAgo": {
+    "now": "baru saja",
+    "past": "{0} lalu",
+    "future": "dalam {0}",
+    "month": {
+      "singular": {
+        "future": "bulan depan",
+        "past": "bulan lalu"
+      },
+      "plural": "{n} bulan | {n} bulan"
+    },
+    "year": {
+      "singular": {
+        "future": "tahun depan",
+        "past": "tahun lalu"
+      },
+      "plural": "{n} tahun | {n} tahun"
+    },
+    "day": {
+      "singular": {
+        "future": "besok",
+        "past": "kemarin"
+      },
+      "plural": "{n} hari | {n} hari"
+    },
+    "week": {
+      "singular": {
+        "future": "minggu depan",
+        "past": "minggu lalu"
+      },
+      "plural": "{n} minggu | {n} minggu"
+    },
+    "hour": "{n} jam | {n} jam",
+    "minute": "{n} menit | {n} menit",
+    "second": "{n} detik | {n} detik"
   }
 }

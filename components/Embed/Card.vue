@@ -77,7 +77,7 @@
 <script setup lang="ts">
 const props = defineProps<{
   project: ProjectLatestGQL;
-  language: string;
+  language: AvailableLocalesType;
   accent: ColorAccent;
 }>();
 
@@ -126,15 +126,15 @@ const formattedSeason = computed(() => {
   }
 });
 
+const nowHeartbeat = useNow({
+  interval: 30_000,
+  controls: false,
+});
+
 const formatUpdated = computed(() => {
-  /// yyyy-mm-dd
-
   const date = new Date(props.project.updated);
-  const year = date.getFullYear();
-  const month = (date.getMonth() + 1).toString().padStart(2, "0");
-  const day = date.getDate().toString().padStart(2, "0");
 
-  return `${year}-${month}-${day}`;
+  return timeAgo(date, props.language, nowHeartbeat.value);
 });
 
 function getSeasonIcon(month: number) {

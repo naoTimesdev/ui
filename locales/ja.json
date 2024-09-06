@@ -30,5 +30,41 @@
       "showEpisodes": "次の{0}つのエピソードを参照。。。",
       "hideEpisodes": "閉める。。。"
     }
+  },
+  "timeAgo": {
+    "now": "今",
+    "past": "{0}前",
+    "future": "{0}後",
+    "month": {
+      "singular": {
+        "future": "来月",
+        "past": "先月"
+      },
+      "plural": "{n}か月 | {n}か月"
+    },
+    "year": {
+      "singular": {
+        "future": "来年",
+        "past": "昨年"
+      },
+      "plural": "{n}年 | {n}年"
+    },
+    "day": {
+      "singular": {
+        "future": "明日",
+        "past": "昨日"
+      },
+      "plural": "{n}日 | {n}日"
+    },
+    "week": {
+      "singular": {
+        "future": "来週",
+        "past": "先週"
+      },
+      "plural": "{n}週間 | {n}週間"
+    },
+    "hour": "{n}時間 | {n}時間",
+    "minute": "{n}分 | {n}分",
+    "second": "{n}秒 | {n}秒"
   }
 }

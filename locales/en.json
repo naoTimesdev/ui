@@ -53,5 +53,41 @@
       "showEpisodes": "See next {0} episode...",
       "hideEpisodes": "Close..."
     }
+  },
+  "timeAgo": {
+    "now": "just now",
+    "past": "{0} ago",
+    "future": "in {0}",
+    "month": {
+      "singular": {
+        "future": "next month",
+        "past": "last month"
+      },
+      "plural": "{n} month | {n} months"
+    },
+    "year": {
+      "singular": {
+        "future": "next year",
+        "past": "last year"
+      },
+      "plural": "{n} year | {n} years"
+    },
+    "day": {
+      "singular": {
+        "future": "tomorrow",
+        "past": "yesterday"
+      },
+      "plural": "{n} day | {n} days"
+    },
+    "week": {
+      "singular": {
+        "future": "next week",
+        "past": "last week"
+      },
+      "plural": "{n} week | {n} weeks"
+    },
+    "hour": "{n} hour | {n} hours",
+    "minute": "{n} minute | {n} minutes",
+    "second": "{n} second | {n} seconds"
   }
 }
