@@ -57,14 +57,9 @@
     <div>
       <div class="absolute bottom-2 left-3 text-xs text-zinc-400 dark:text-zinc-300">
         <div class="flex flex-row gap-1 text-left">
-          <span v-if="firstEpisode.delayReason" class="group relative z-10 inline-block size-4 text-blue-400">
-            <Icon name="i-heroicons-information-circle-solid" class="size-4 text-blue-400" />
-            <span
-              class="pointer-events-none absolute bottom-5 min-w-60 rounded rounded-bl-none border border-blue-400 bg-blue-100 px-2 py-2 text-blue-800 opacity-0 shadow transition-opacity group-hover:opacity-100"
-            >
-              {{ firstEpisode.delayReason }}
-            </span>
-          </span>
+          <EmbedDelayReason v-if="firstEpisode.delayReason">
+            {{ firstEpisode.delayReason }}
+          </EmbedDelayReason>
           <time :datetime="project.updated" class="font-variable text-[0.7rem] tracking-tighter">
             {{ $t("embed.card.lastUpdate", [formatUpdated], { locale: language }) }}
           </time>

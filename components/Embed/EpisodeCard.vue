@@ -9,19 +9,11 @@
   >
     <div>
       <div>
+        <EmbedDelayReason v-if="progress.delayReason && !hideReason" class="mb-1 mr-1" smaller>
+          {{ progress.delayReason }}
+        </EmbedDelayReason>
         <span class="font-variable variation-weight-semibold">
           {{ localizeEpisodeNumber(progress.number, unfinishedStatus.length) }}
-        </span>
-        <span
-          v-if="progress.delayReason && !hideReason"
-          class="group relative z-10 mb-1 ml-1 inline-block size-4 align-middle text-blue-400"
-        >
-          <Icon name="i-heroicons-information-circle-solid" class="size-4 text-blue-400" />
-          <span
-            class="pointer-events-none absolute bottom-5 min-w-28 rounded rounded-bl-none border border-blue-400 bg-blue-100 px-2 py-2 text-blue-800 opacity-0 shadow transition-opacity group-hover:opacity-100"
-          >
-            {{ progress.delayReason }}
-          </span>
         </span>
       </div>
 
