@@ -107,7 +107,11 @@ const formattedAirDate = computed(() => {
 });
 
 function localizeRole(role: ProjectLatestGQL["progress"][0]["statuses"][0]["role"]) {
-  const transRole = t(`embed.card.roles.${role.key}`, [], { locale: props.language });
+  const transRole = t(`embed.card.roles.${role.key}`, [], {
+    locale: props.language,
+    fallbackWarn: false,
+    missingWarn: false,
+  });
 
   if (transRole === `embed.card.roles.${role.key}`) {
     return role.name;
