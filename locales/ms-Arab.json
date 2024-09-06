@@ -1,0 +1,70 @@
+{
+  "embed": {
+    "error": {
+      "notFound": "Tiada pasukan ditemui",
+      "noProjects": "Tiada projek aktif",
+      "failedProjects": "Gagal mendapatkan projek"
+    },
+    "card": {
+      "seasonYear": {
+        "winter": "{year} موسيم سجوق",
+        "spring": "{year} موسيم بوڠا",
+        "summer": "{year} موسيم ڤانس",
+        "FALL": "{year} موسيم لوروه"
+      },
+      "lastUpdate": "دڤربهاروٴي {0}",
+      "roles": {
+        "TL": "ترجمهن",
+        "TLC": "سيمق ترجمهن",
+        "ENC": "ڤڠکود ۏيديو",
+        "ED": "ايديتور سکريڤ",
+        "TM": "ڤلارس وقتو",
+        "TS": "ڤنات حروف",
+        "QC": "تينجاوان اخير"
+      },
+      "numberNeeds": "ايڤيسود {0} ڤرلو",
+      "number": "ايڤيسود {0}",
+      "waitRelease": "منوڠݢو دتربيت...",
+      "noProgress": "بلوم اد کماجوان",
+      "notAired": "بلوم دتايڠكن لاڬي",
+      "showEpisodes": "ليهت {0} ايڤيسود سلنجوتڽ...",
+      "hideEpisodes": "توتوڤ..."
+    }
+  },
+  "timeAgo": {
+    "now": "سکارڠ",
+    "past": "{0} يڠ لالو",
+    "future": "{0} دالم",
+    "month": {
+      "singular": {
+        "future": "بولن برايکوتڽ",
+        "past": "بولن لڤس"
+      },
+      "plural": "{n} بولن | {n} بولن"
+    },
+    "year": {
+      "singular": {
+        "future": "تاهون دڤن",
+        "past": "تاهون لڤس"
+      },
+      "plural": "{n} تاهون | {n} تاهون"
+    },
+    "day": {
+      "singular": {
+        "future": "ايسوق",
+        "past": "سمالم"
+      },
+      "plural": "{n} هاري | {n} هاري"
+    },
+    "week": {
+      "singular": {
+        "future": "ميڠݢو دڤن",
+        "past": "ميڠݢو لڤس"
+      },
+      "plural": "{n} ميڠڬو | {n} ميڠڬو"
+    },
+    "hour": "جم {n} | جم {n}",
+    "minute": "{n} مينيت | {n} مينيت",
+    "second": "{n} ساعت | {n} ساعت"
+  }
+}

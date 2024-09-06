@@ -1,0 +1,70 @@
+{
+  "embed": {
+    "error": {
+      "notFound": "Tiada pasukan ditemui",
+      "noProjects": "Tiada projek aktif",
+      "failedProjects": "Gagal mendapatkan projek"
+    },
+    "card": {
+      "seasonYear": {
+        "winter": "Musim Sejuk {year}",
+        "spring": "Musim Bunga {year}",
+        "summer": "Musim Panas {year}",
+        "fall": "Musim Luruh {year}"
+      },
+      "lastUpdate": "Diperbaharui {0}",
+      "roles": {
+        "TL": "Terjemahan",
+        "TLC": "Semak Terjemahan",
+        "ENC": "Pengekod Video",
+        "ED": "Editor Skrip",
+        "TM": "Pelaras Waktu",
+        "TS": "Penata Huruf",
+        "QC": "Tinjauan Akhir"
+      },
+      "numberNeeds": "Episode {0} perlu",
+      "number": "Episode {0}",
+      "waitRelease": "Ngantosan dirilis...",
+      "noProgress": "Belum ada kemajuan",
+      "notAired": "Belum ditayangkan",
+      "showEpisodes": "Lihat {0} episode selanjutnya...",
+      "hideEpisodes": "Tutup..."
+    }
+  },
+  "timeAgo": {
+    "now": "sekarang",
+    "past": "{0} yang lepas",
+    "future": "dalam {0}",
+    "month": {
+      "singular": {
+        "future": "bulan berikutnya",
+        "past": "bulan lepas"
+      },
+      "plural": "{n} bulan | {n} bulan"
+    },
+    "year": {
+      "singular": {
+        "future": "tahun depan",
+        "past": "tahun lepas"
+      },
+      "plural": "{n} tahun | {n} tahun"
+    },
+    "day": {
+      "singular": {
+        "future": "esok",
+        "past": "semalam"
+      },
+      "plural": "{n} poe | {n} poe"
+    },
+    "week": {
+      "singular": {
+        "future": "minggu depan",
+        "past": "minggu lepas"
+      },
+      "plural": "{n} minggu | {n} minggu"
+    },
+    "hour": "{n} jam | {n} jam",
+    "minute": "{n} minit | {n} minit",
+    "second": "{n} saat | {n} saat"
+  }
+}

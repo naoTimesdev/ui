@@ -1,0 +1,70 @@
+{
+  "embed": {
+    "error": {
+      "notFound": "Tim ora ditemokake",
+      "noProjects": "Ora ana proyek aktif",
+      "failedProjects": "Gagal entuk proyek"
+    },
+    "card": {
+      "seasonYear": {
+        "winter": "Mangsa Adhem {year}",
+        "spring": "Mangsa Semi {year}",
+        "summer": "Mangsa Panas {year}",
+        "fall": "Mangsa Gugur {year}"
+      },
+      "lastUpdate": "Dianyari {0}",
+      "roles": {
+        "TL": "Terjemahan",
+        "TLC": "Cek Terjemahan",
+        "ENC": "Olahan Video",
+        "ED": "Menggubah Skrip",
+        "TM": "Selaras Waktu",
+        "TS": "Tata Rias",
+        "QC": "Tinjauan Akhir"
+      },
+      "numberNeeds": "Episode {0} betah",
+      "number": "Episode {0}",
+      "waitRelease": "Ngenteni dirilis...",
+      "noProgress": "Durung ana kemajuan",
+      "notAired": "Durung ditayangke",
+      "showEpisodes": "Deleng {0} episode sabanjure...",
+      "hideEpisodes": "Tutup..."
+    }
+  },
+  "timeAgo": {
+    "now": "sapunika ugi",
+    "past": "{0} ingkang rumiyin",
+    "future": "lebet {0}",
+    "month": {
+      "singular": {
+        "future": "sasi ngajeng",
+        "past": "sasi kala wingi"
+      },
+      "plural": "{n} sasi | {n} sasi"
+    },
+    "year": {
+      "singular": {
+        "future": "warsa ngajeng",
+        "past": "warsa kala wingi"
+      },
+      "plural": "{n} warsa | {n} warsa"
+    },
+    "day": {
+      "singular": {
+        "future": "benjing",
+        "past": "kala wingi"
+      },
+      "plural": "{n} dinten | {n} dinten"
+    },
+    "week": {
+      "singular": {
+        "future": "minggu ngajeng",
+        "past": "minggu kala wingi"
+      },
+      "plural": "{n} minggu | {n} minggu"
+    },
+    "hour": "{n} tabuh | {n} tabuh",
+    "minute": "{n} menit | {n} menit",
+    "second": "{n} detik | {n} detik"
+  }
+}

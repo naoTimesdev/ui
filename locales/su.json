@@ -1,0 +1,70 @@
+{
+  "embed": {
+    "error": {
+      "notFound": "Tim teu kapanggih",
+      "noProjects": "Taya proyék lumangsung",
+      "failedProjects": "Gagal meunang proyék"
+    },
+    "card": {
+      "seasonYear": {
+        "winter": "Usum Tiris {year}",
+        "spring": "Cinyusu {year}",
+        "summer": "Usum Panas {year}",
+        "fall": "Usum Muguran {year}"
+      },
+      "lastUpdate": "Diropéa {0}",
+      "roles": {
+        "TL": "Terjemahan",
+        "TLC": "Cek Terjemahan",
+        "ENC": "Olahan Video",
+        "ED": "Menggubah Skrip",
+        "TM": "Selaras Waktu",
+        "TS": "Tata Rias",
+        "QC": "Tinjauan Akhir"
+      },
+      "numberNeeds": "Episode {0} peryogi",
+      "number": "Episode {0}",
+      "waitRelease": "Ngantosan dirilis...",
+      "noProgress": "Tacan aya kemajuan",
+      "notAired": "Teu acan ditayangkeun",
+      "showEpisodes": "Tingali {0} episode salajengna...",
+      "hideEpisodes": "Tutup..."
+    }
+  },
+  "timeAgo": {
+    "now": "ayeuna",
+    "past": "{0} nu kapungkur",
+    "future": "tina {0}",
+    "month": {
+      "singular": {
+        "future": "sasi hareup",
+        "past": "sasih kamari"
+      },
+      "plural": "{n} sasih | {n} sasih"
+    },
+    "year": {
+      "singular": {
+        "future": "taun hareup",
+        "past": "taun kamari"
+      },
+      "plural": "{n} taun | {n} taun"
+    },
+    "day": {
+      "singular": {
+        "future": "enjing",
+        "past": "kamari"
+      },
+      "plural": "{n} poe | {n} poe"
+    },
+    "week": {
+      "singular": {
+        "future": "minggu hareup",
+        "past": "minggu kamari"
+      },
+      "plural": "{n} minggu | {n} minggu"
+    },
+    "hour": "{n} jam | {n} jam",
+    "minute": "{n} menit | {n} menit",
+    "second": "{n} detik | {n} detik"
+  }
+}
