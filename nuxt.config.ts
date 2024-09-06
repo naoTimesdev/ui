@@ -259,14 +259,6 @@ export default defineNuxtConfig({
         provider: "fontsource",
         weights: ["200", "300", "400", "500", "600", "700", "800"],
       },
-      {
-        name: "Rubik",
-        provider: "fontsource",
-        weights: ["300", "400", "500", "600", "700"],
-        display: "swap",
-        styles: ["normal", "italic"],
-        subsets: ["latin", "latin-ext"],
-      },
     ],
   },
   colorMode: {

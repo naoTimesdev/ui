@@ -114,7 +114,6 @@ export default {
           "Monaspace Xenon",
           "Monaspace Neon Var VF",
           "Monaspace Xenon Var VF",
-          "Rubik",
           "M PLUS 1 Code Var VF",
           "M PLUS 1 Code",
         ],
