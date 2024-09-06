@@ -37,8 +37,6 @@ onMounted(async () => {
   try {
     const results = await auth.login(queryCode, queryState);
 
-    console.log(results);
-
     if (results) {
       await router.push("/dashboard");
     } else {

@@ -125,8 +125,6 @@ function localizeRole(role: ProjectLatestGQL["progress"][0]["statuses"][0]["role
 }
 
 function localizeEpisodeNumber(n: number, unfinishedCount: number) {
-  console.log(n, unfinishedCount);
-
   switch (props.kind) {
     case "SERIES": {
       return t("embed.card.number.series", unfinishedCount, { locale: props.language, named: { n } });

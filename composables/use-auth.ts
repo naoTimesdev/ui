@@ -21,8 +21,6 @@ const useAuth = defineStore("auth", () => {
 
     const results = await mutateLogin({ code, state });
 
-    console.log(results);
-
     if (results?.data) {
       user.value = results.data.auth.user;
       token.value = results.data.auth.token;
