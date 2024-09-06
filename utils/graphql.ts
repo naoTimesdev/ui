@@ -101,7 +101,7 @@ export const queryCurrentUser = gql`
 `;
 
 const queryLatestProjectServers = `query allProjects($serverId: UlidGQL!) {
-  projects(serverIds: [$serverId], unpaged: true) {
+  projects(serverIds: [$serverId], unpaged: true, sort:UPDATED_AT_DESC) {
     node {
       id
       title
