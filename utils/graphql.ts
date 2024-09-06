@@ -46,7 +46,7 @@ export interface ProjectLatestGQL {
     airDate: Nullable<DateTimeGQL>;
     delayReason: Nullable<string>;
     finished: boolean;
-    number: string;
+    number: number;
     statuses: {
       role: {
         key: string;
@@ -55,6 +55,8 @@ export interface ProjectLatestGQL {
       finished: boolean;
     }[];
   }[];
+  count: number;
+  startTime: Nullable<DateTimeGQL>;
   updated: DateTimeGQL;
 }
 
@@ -116,6 +118,8 @@ const queryLatestProjectServers = `query allProjects($serverId: UlidGQL!) {
           finished
         }
       }
+      count
+      startTime
       updated
     }
   }

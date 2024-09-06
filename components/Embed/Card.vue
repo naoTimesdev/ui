@@ -6,11 +6,19 @@
       <NuxtImg :src="posterUrl" width="250" height="325" class="z-0 rounded-md" :alt="`Poster Proyek ${project.id}`" />
     </div>
     <div class="flex h-full max-w-full flex-grow flex-col px-3 py-8 pt-2 text-xs">
-      <h1 class="mt-0.5 text-base font-semibold text-zinc-800 dark:text-zinc-100">
+      <h1
+        class="font-variable mt-0.5 text-base tracking-tighter text-zinc-800 variation-weight-extrabold dark:text-zinc-100"
+      >
         {{ project.title }}
       </h1>
       <div>
-        <EmbedEpisodeCard :progress="firstEpisode" :language="props.language" hide-reason />
+        <EmbedEpisodeCard
+          :kind="project.kind"
+          :count="project.count"
+          :progress="firstEpisode"
+          :language="props.language"
+          hide-reason
+        />
       </div>
       <template v-if="next3Episode.length > 0">
         <div
@@ -22,6 +30,8 @@
           <EmbedEpisodeCard
             v-for="progress in next3Episode"
             :key="`card-${project.id}-ep-${progress.number}`"
+            :kind="project.kind"
+            :count="project.count"
             :progress="progress"
             :language="props.language"
           />
@@ -55,19 +65,23 @@
               {{ firstEpisode.delayReason }}
             </span>
           </span>
-          <time :datetime="project.updated">{{
-            $t("embed.card.lastUpdate", [formatUpdated], { locale: language })
-          }}</time>
+          <time :datetime="project.updated" class="font-variable text-[0.7rem] tracking-tighter">
+            {{ $t("embed.card.lastUpdate", [formatUpdated], { locale: language }) }}
+          </time>
         </div>
       </div>
       <div
-        class="absolute bottom-2 right-3 text-xs text-zinc-400 dark:text-zinc-300"
+        class="absolute bottom-2 right-3 text-[0.7rem] text-zinc-400 dark:text-zinc-300"
         :class="{
           invisible: !formattedSeason,
         }"
       >
-        <div class="flex flex-row text-right">
-          <span>{{ formattedSeason ?? "Unknown" }}</span>
+        <div class="inline text-right">
+          <EmbedEmojiSeason v-if="formattedSeason" :season="formattedSeason.season" class="mb-0.5 mr-1 inline size-3" />
+          <span v-if="formattedSeason" class="align-middle">
+            {{ getSeasonName(formattedSeason.season, formattedSeason.year) }}
+          </span>
+          <span v-else>Unknown</span>
         </div>
       </div>
     </div>
@@ -115,14 +129,15 @@ const posterUrl = computed(() => {
 });
 
 const formattedSeason = computed(() => {
-  const firstProgress = props.project.progress[0];
-
-  if (firstProgress?.airDate) {
-    const date = new Date(firstProgress.airDate);
+  if (props.project.startTime) {
+    const date = new Date(props.project.startTime);
     const month = date.getMonth();
     const year = date.getFullYear();
 
-    return `${getSeasonIcon(month)} ${getSeasonName(month, year)}`;
+    return {
+      season: getSeason(month),
+      year,
+    };
   }
 });
 
@@ -137,71 +152,29 @@ const formatUpdated = computed(() => {
   return timeAgo(date, props.language, nowHeartbeat.value);
 });
 
-function getSeasonIcon(month: number) {
+function getSeason(month: number): "winter" | "spring" | "summer" | "fall" {
   if (month >= 0 && month <= 2) {
-    return "❄️";
+    return "winter";
   }
 
   if (month >= 3 && month <= 5) {
-    return "🌸";
+    return "spring";
   }
 
   if (month >= 6 && month <= 8) {
-    return "☀️";
+    return "summer";
   }
 
   if (month >= 9 && month <= 11) {
-    return "🍂";
+    return "fall";
   }
 
-  if (month >= 12) {
-    return "❄️";
-  }
+  return "winter";
 }
 
-function getSeasonName(month: number, year: number): string {
-  if (month >= 0 && month <= 2) {
-    return t(
-      "embed.card.seasonYear.winter",
-      { year },
-      {
-        locale: props.language,
-      }
-    );
-  }
-
-  if (month >= 3 && month <= 5) {
-    return t(
-      "embed.card.seasonYear.spring",
-      { year },
-      {
-        locale: props.language,
-      }
-    );
-  }
-
-  if (month >= 6 && month <= 8) {
-    return t(
-      "embed.card.seasonYear.summer",
-      { year },
-      {
-        locale: props.language,
-      }
-    );
-  }
-
-  if (month >= 9 && month <= 11) {
-    return t(
-      "embed.card.seasonYear.fall",
-      { year },
-      {
-        locale: props.language,
-      }
-    );
-  }
-
+function getSeasonName(month: "winter" | "spring" | "summer" | "fall", year: number): string {
   return t(
-    "embed.card.seasonYear.winter",
+    `embed.card.seasonYear.${month}`,
     { year },
     {
       locale: props.language,

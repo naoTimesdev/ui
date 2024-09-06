@@ -109,7 +109,15 @@ export default {
       fontFamily: {
         monospace: ["Monaspace Xenon Var VF", "Monaspace Xenon", ...defaultTheme.fontFamily.mono],
         sans: ["Monaspace Neon Var VF", "Monaspace Neon", ...defaultTheme.fontFamily.sans],
-        custom: ["Monaspace Neon", "Monaspace Xenon", "Monaspace Neon Var VF", "Monaspace Xenon Var VF", "Rubik"],
+        custom: [
+          "Monaspace Neon",
+          "Monaspace Xenon",
+          "Monaspace Neon Var VF",
+          "Monaspace Xenon Var VF",
+          "Rubik",
+          "M PLUS 1 Code Var VF",
+          "M PLUS 1 Code",
+        ],
       },
       borderRadius: {
         xl: "calc(var(--radius) + 4px)",
@@ -148,6 +156,7 @@ export default {
     cssImportPlugin("./assets/css/components/autolink.css"),
     cssImportPlugin("./assets/css/components/glow-text.css"),
     cssImportPlugin("./assets/css/components/monaspace.css"),
+    cssImportPlugin("./assets/css/components/mplus1.css"),
     plugin(({ addComponents, addUtilities, matchUtilities, theme }) => {
       // Variable fonts
       addComponents({

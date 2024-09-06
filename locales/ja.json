@@ -22,8 +22,30 @@
         "TS": "組版",
         "QC": "品証"
       },
-      "numberNeeds": "第{0}話の必要",
-      "number": "第{0}話",
+      "number": {
+        "series": "第{n}話 | 第{n}話の必要",
+        "movies": {
+          "singular": "映画 | 映画の必要",
+          "plural": "映画{n} | 映画{n}の必要"
+        },
+        "ova": {
+          "singular": "OVA | OVAの必要",
+          "plural": "OVA{n} | OVA{n}の必要"
+        },
+        "books": {
+          "singular": "本 | 本の必要",
+          "plural": "本{n} | 本{n}の必要"
+        },
+        "manga": "第{n}章 | 第{n}章の必要",
+        "games": {
+          "singular": "ゲーム | ゲームの必要",
+          "plural": "ゲーム{n} | ゲーム{n}の必要"
+        },
+        "vn": {
+          "singular": "ビジュアルノベル | ビジュアルノベルの必要",
+          "plural": "ビジュアルノベル{n} | ビジュアルノベル{n}の必要"
+        }
+      },
       "waitRelease": "発売を待つ。。。",
       "noProgress": "進展なし",
       "notAired": "まだ放送されていない",

@@ -45,8 +45,30 @@
         "TS": "Typesetting",
         "QC": "Quality Checking"
       },
-      "numberNeeds": "Episode {0} needs",
-      "number": "Episode {0}",
+      "number": {
+        "series": "Episode {n} | Episode {n} needs",
+        "movies": {
+          "singular": "Movie | Movie needs",
+          "plural": "Movie {n} | Movie {n} needs"
+        },
+        "ova": {
+          "singular": "OVA | OVA needs",
+          "plural": "OVA {n} | OVA {n} needs"
+        },
+        "books": {
+          "singular": "Volume | Volume needs",
+          "plural": "Volume {n} | Volume {n} needs"
+        },
+        "manga": "Chapter {n} | Chapter {n} needs",
+        "games": {
+          "singular": "Game | Game needs",
+          "plural": "Game {n} | Game {n} needs"
+        },
+        "vn": {
+          "singular": "VN | VN needs",
+          "plural": "VN {n} | VN {n} needs"
+        }
+      },
       "waitRelease": "Waiting for release...",
       "noProgress": "No progress",
       "notAired": "Not aired yet",

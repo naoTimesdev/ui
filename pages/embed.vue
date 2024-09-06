@@ -1,5 +1,5 @@
 <template>
-  <div class="font-rubik">
+  <div class="font-embed-display tracking-tight">
     <div
       class="relative grid gap-2 bg-transparent px-1 pb-2 sm:grid-cols-2 sm:px-2 sm:py-2 lg:grid-cols-3 xl:grid-cols-4"
     >
@@ -39,7 +39,7 @@ const runtimeConfig = useRuntimeConfig();
 const { id, accent, dark, lang } = route.query;
 const meili = useMeili();
 
-const embedLang = ref("id");
+const embedLang = ref<AvailableLocalesType>("id");
 const embedAccent = ref<ColorAccent>("green");
 
 const getFirst = (
@@ -255,8 +255,8 @@ function propagateHashChange() {
     embedAccent.value = accent as ColorAccent;
   }
 
-  if (lang && lang !== embedLang.value) {
-    embedLang.value = lang;
+  if (lang && lang !== embedLang.value && ValidLocales.includes(lang as AvailableLocalesType)) {
+    embedLang.value = lang as AvailableLocalesType;
   }
 }
 
@@ -291,12 +291,10 @@ function propagateEventChange(event: MessageEvent<string>) {
         root.classList.remove("dark");
       }
     }
-  } else if (data.action === "setAccent") {
-    if (ValidAccent.includes(data.target as ColorAccent)) {
-      embedAccent.value = data.target as ColorAccent;
-    }
-  } else if (data.action === "setLanguage") {
-    embedLang.value = data.target;
+  } else if (data.action === "setAccent" && ValidAccent.includes(data.target as ColorAccent)) {
+    embedAccent.value = data.target as ColorAccent;
+  } else if (data.action === "setLanguage" && ValidLocales.includes(data.target as AvailableLocalesType)) {
+    embedLang.value = data.target as AvailableLocalesType;
   }
 }
 
@@ -319,8 +317,8 @@ onMounted(() => {
     embedAccent.value = hasAccent as ColorAccent;
   }
 
-  if (hashLang) {
-    embedLang.value = hashLang;
+  if (hashLang && ValidLocales.includes(hashLang as AvailableLocalesType)) {
+    embedLang.value = hashLang as AvailableLocalesType;
   }
 
   nextTick(() => {
@@ -354,8 +352,8 @@ definePageMeta({
 </script>
 
 <style lang="postcss" scoped>
-.font-rubik {
-  font-family: "Rubik";
+.font-embed-display {
+  font-family: "Monaspace Xenon Var VF", "M PLUS 1 Code Var VF", "Monaspace Xenon", "M PLUS 1 Code";
 }
 </style>
 

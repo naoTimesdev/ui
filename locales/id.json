@@ -45,8 +45,30 @@
         "TS": "Tata Rias",
         "QC": "Tinjauan Akhir"
       },
-      "numberNeeds": "Episode {0} butuh",
-      "number": "Episode {0}",
+      "number": {
+        "series": "Episode {n} | Episode {n} butuh",
+        "movies": {
+          "singular": "Film | Film butuh",
+          "plural": "Film {n} | Film {n} butuh"
+        },
+        "ova": {
+          "singular": "OVA | OVA butuh",
+          "plural": "OVA {n} | OVA {n} butuh"
+        },
+        "books": {
+          "singular": "Buku | Buku butuh",
+          "plural": "Buku {n} | Buku {n} butuh"
+        },
+        "manga": "Chapter {n} | Chapter {n} butuh",
+        "games": {
+          "singular": "Gim | Gim butuh",
+          "plural": "Gim {n} | Gim {n} butuh"
+        },
+        "vn": {
+          "singular": "VN | VN butuh",
+          "plural": "VN {n} | VN {n} butuh"
+        }
+      },
       "waitRelease": "Menunggu dirilis...",
       "noProgress": "Belum ada progres",
       "notAired": "Belum tayang",

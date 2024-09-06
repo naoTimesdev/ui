@@ -1,6 +1,10 @@
 <template>
-  <div :class="cn('group relative inline-block cursor-default rounded border px-1 align-middle', computedColor)">
-    <span>{{ realTitle }}</span>
+  <div
+    :class="
+      cn('group relative inline-block cursor-default rounded border px-1 align-middle', computedColor, $props.class)
+    "
+  >
+    <span :class="cn('align-middle', $props.classText)">{{ realTitle }}</span>
     <div
       :class="
         cn(
@@ -9,7 +13,7 @@
         )
       "
     >
-      {{ popupText }}
+      <span :class="cn('align-middle', $props.classHover)">{{ popupText }}</span>
     </div>
   </div>
 </template>
@@ -19,6 +23,9 @@ const props = defineProps<{
   title: string;
   popupText: string;
   overrideTitle?: string;
+  class?: string;
+  classText?: string;
+  classHover?: string;
 }>();
 
 const realTitle = computed(() => {

@@ -1,0 +1,19 @@
+@layer base {
+  @font-face {
+    font-family: "M PLUS 1 Code Var VF";
+    src: url("/assets/fonts/MPLUS1Code-VariableFont_wght.ttf") format("truetype");
+    font-weight: 100 700;
+  }
+}
+
+@layer components {
+  .font-mplus1 {
+    font-family: "M PLUS 1 Code";
+  }
+
+  @supports (font-variation-settings: "wght" 500) {
+    .font-mplus1 {
+      font-family: "M PLUS 1 Code Var VF", "M PLUS 1 Code";
+    }
+  }
+}

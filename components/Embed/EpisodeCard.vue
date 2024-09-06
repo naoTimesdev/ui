@@ -8,13 +8,9 @@
     }"
   >
     <div>
-      <div class="">
-        <span class="font-medium">
-          {{
-            episodeAired && anyProgress && unfinishedStatus.length > 0
-              ? $t("embed.card.numberNeeds", [progress.number], { locale: language })
-              : $t("embed.card.number", [progress.number], { locale: language })
-          }}
+      <div>
+        <span class="font-variable variation-weight-semibold">
+          {{ localizeEpisodeNumber(progress.number, unfinishedStatus.length) }}
         </span>
         <span
           v-if="progress.delayReason && !hideReason"
@@ -34,12 +30,14 @@
           <RolePopup
             v-for="role in unfinishedStatus"
             :key="`ep-${progress.number}-${role.role.key}`"
+            class-text="font-variable variation-weight-medium"
+            class-hover="font-variable variation-weight-semibold tracking-tighter"
             :title="role.role.key"
             :popup-text="localizeRole(role.role)"
           />
         </div>
         <div v-else class="mt-1 flex gap-1">
-          <span class="text-lg font-light">
+          <span class="font-variable text-lg variation-weight-light">
             {{ $t("embed.card.waitRelease", [], { locale: language }) }}
           </span>
         </div>
@@ -47,12 +45,14 @@
       <template v-else-if="episodeAired && !anyProgress">
         <template v-if="formattedAirDate">
           <div>
-            <time :datetime="formattedAirDate.airDate">
+            <time class="font-variable variation-weight-medium" :datetime="formattedAirDate.airDate">
               {{ $t("embed.card.aired", [formattedAirDate.text], { locale: language }) }}
             </time>
           </div>
           <div>
-            <span>{{ $t("embed.card.noProgress", [], { locale: language }) }}</span>
+            <span class="font-variable variation-weight-[450]">{{
+              $t("embed.card.noProgress", [], { locale: language })
+            }}</span>
           </div>
         </template>
       </template>
@@ -73,6 +73,8 @@
 <script setup lang="ts">
 const props = defineProps<{
   progress: ProjectLatestGQL["progress"][0];
+  kind: ProjectLatestGQL["kind"];
+  count: number;
   language: AvailableLocalesType;
   hideReason?: boolean;
 }>();
@@ -120,5 +122,63 @@ function localizeRole(role: ProjectLatestGQL["progress"][0]["statuses"][0]["role
   }
 
   return transRole;
+}
+
+function localizeEpisodeNumber(n: number, unfinishedCount: number) {
+  console.log(n, unfinishedCount);
+
+  switch (props.kind) {
+    case "SERIES": {
+      return t("embed.card.number.series", unfinishedCount, { locale: props.language, named: { n } });
+    }
+    case "MANGA": {
+      return t("embed.card.number.manga", unfinishedCount, { locale: props.language, named: { n } });
+    }
+    case "MOVIES": {
+      if (props.count > 1) {
+        return t("embed.card.number.movies.plural", unfinishedCount, { locale: props.language, named: { n } });
+      }
+
+      return t("embed.card.number.movies.singular", unfinishedCount, { locale: props.language, named: { n } });
+    }
+    case "OVA": {
+      if (props.count > 1) {
+        return t("embed.card.number.ova.plural", unfinishedCount, { locale: props.language, named: { n } });
+      }
+
+      return t("embed.card.number.ova.singular", unfinishedCount, { locale: props.language, named: { n } });
+    }
+    case "BOOKS":
+    case "LIGHT_NOVEL": {
+      if (props.count > 1) {
+        return t("embed.card.number.books.plural", unfinishedCount, { locale: props.language, named: { n } });
+      }
+
+      return t("embed.card.number.books.singular", unfinishedCount, { locale: props.language, named: { n } });
+    }
+    case "GAMES": {
+      if (props.count > 1) {
+        return t("embed.card.number.games.plural", unfinishedCount, { locale: props.language, named: { n } });
+      }
+
+      return t("embed.card.number.games.singular", unfinishedCount, { locale: props.language, named: { n } });
+    }
+    case "VISUAL_NOVEL": {
+      if (props.count > 1) {
+        return t("embed.card.number.vn.plural", unfinishedCount, {
+          locale: props.language,
+          named: { n },
+        });
+      }
+
+      return t("embed.card.number.vn.singular", unfinishedCount, {
+        locale: props.language,
+        named: { n },
+      });
+    }
+    case "UNKNOWN": {
+      return t("embed.card.number.series", unfinishedCount, { locale: props.language, named: { n } });
+    }
+  }
 }
 </script>

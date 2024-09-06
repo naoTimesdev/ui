@@ -254,6 +254,12 @@ export default defineNuxtConfig({
         weights: ["400", "600", "700", "800"],
       },
       {
+        // Monospace font for JP glyphs
+        name: "M PLUS 1 Code",
+        provider: "fontsource",
+        weights: ["200", "300", "400", "500", "600", "700", "800"],
+      },
+      {
         name: "Rubik",
         provider: "fontsource",
         weights: ["300", "400", "500", "600", "700"],
