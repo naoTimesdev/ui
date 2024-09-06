@@ -105,7 +105,7 @@ const { data: serverData } = await useAsyncData<SearchServer | undefined>(
 
     console.log("Querying meili", queryFilter, serverId.value);
 
-    const results = await meili.searchServer({
+    const results = await meili.searchServerPrivate({
       filter: queryFilter,
     });
 

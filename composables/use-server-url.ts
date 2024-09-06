@@ -30,6 +30,22 @@ export const useServerUrl = () => {
     return `${originUrl.value}/${path}`;
   };
 
+  const makeUrlPrivate = (path: string) => {
+    if (!import.meta.server) {
+      throw new Error("This function is only available on the server");
+    }
+
+    if (path.startsWith("http")) {
+      return path;
+    }
+
+    const urlData = new URL(runtimeConf.apiPrivateUrl);
+
+    urlData.pathname = path.startsWith("/") ? path : `/${path}`;
+
+    return urlData.toString();
+  };
+
   const makeCdnUrl = (path: string) => {
     const cdnUrl = runtimeConf.public.cdnUrl;
 
@@ -49,6 +65,7 @@ export const useServerUrl = () => {
     origin: originUrl,
     sameDomain,
     makeUrl,
+    makeUrlPrivate,
     makeCdnUrl,
   };
 };

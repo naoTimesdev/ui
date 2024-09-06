@@ -163,7 +163,7 @@ export class GraphQLSimpleError extends Error {
 
 export async function graphqlGetLatestProjectsInformation(serverId: UlidGQL) {
   const runtimeConfig = useRuntimeConfig();
-  const { makeUrl } = useServerUrl();
+  const { makeUrlPrivate } = useServerUrl();
 
   const variables = {
     serverId,
@@ -175,7 +175,7 @@ export async function graphqlGetLatestProjectsInformation(serverId: UlidGQL) {
     operationName: "allProjects",
   });
 
-  const results = await fetch(makeUrl("/graphql"), {
+  const results = await fetch(makeUrlPrivate("/graphql"), {
     method: "POST",
     headers: {
       Authorization: `Token ${runtimeConfig.apiPrivateKey}`,
