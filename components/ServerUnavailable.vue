@@ -18,10 +18,6 @@
 </template>
 
 <script setup lang="ts">
-const timeout = ref<number | NodeJS.Timeout>();
-const retry = ref<number>(0);
-const { pingServer } = useServerStatus();
-
 const mouseArea = ref<HTMLElement | null>(null);
 const mouseTrail = ref<HTMLElement | null>(null);
 const { x, y } = useMouse({ touch: false });
@@ -29,36 +25,6 @@ const { pressed } = useMousePressed({
   touch: false,
   drag: false,
 });
-
-function callback() {
-  pingServer()
-    .then(() => {
-      clearTimeout(timeout.value);
-
-      retry.value += 1;
-
-      if (retry.value > 10) {
-        // Reset retry
-        retry.value = 0;
-      }
-
-      backoff();
-    })
-    .catch(() => {
-      clearTimeout(timeout.value);
-    });
-}
-
-function backoff() {
-  if (timeout.value) {
-    clearInterval(timeout.value);
-  }
-
-  // Backoff exponentially
-  const backoff = Math.pow(2, retry.value);
-
-  timeout.value = setTimeout(callback, 1000 * backoff);
-}
 
 const unwatchMouseTrail = watch(
   [x, y],
@@ -131,15 +97,9 @@ const unwatchMouseClick = watch(pressed, (mClick) => {
   }
 });
 
-onMounted(() => {
-  // Wait 1s
-  setTimeout(callback, 1000);
-});
-
 onBeforeUnmount(() => {
   unwatchMouseTrail();
   unwatchMouseClick();
-  clearTimeout(timeout.value);
 });
 </script>
 
