@@ -200,6 +200,16 @@ export default defineNuxtConfig({
   imports: {
     autoImport: true,
     scan: true,
+    imports: [
+      {
+        name: "gql",
+        from: "graphql-tag/lib",
+      },
+      {
+        name: "FetchError",
+        from: "ofetch",
+      },
+    ],
   },
   components: [
     {

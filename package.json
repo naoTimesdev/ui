@@ -44,7 +44,7 @@
     "@iconify-json/lucide": "^1.2.2",
     "@iconify-json/radix-icons": "^1.2.0",
     "@iconify-json/simple-icons": "^1.2.1",
-    "@nuxtjs/apollo": "^5.0.0-alpha.14",
+    "@nuxtjs/apollo": "patch:@nuxtjs/apollo@npm%3A5.0.0-alpha.14#~/.yarn/patches/@nuxtjs-apollo-npm-5.0.0-alpha.14-d71b00a0ae.patch",
     "@nuxtjs/tailwindcss": "^6.12.1",
     "@stylistic/eslint-plugin": "^2.7.2",
     "@types/eslint": "^9.6.1",
