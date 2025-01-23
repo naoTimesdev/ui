@@ -102,7 +102,7 @@ export const queryCurrentUser = gql`
 
 const queryLatestProjectServers = `query allProjects($serverId: UlidGQL!) {
   projects(serverIds: [$serverId], unpaged: true, sort:UPDATED_AT_DESC) {
-    node {
+    nodes {
       id
       title
       kind
@@ -203,7 +203,7 @@ export async function graphqlGetLatestProjectsInformation(serverId: UlidGQL) {
       throw new GraphQLSimpleError(json.errors);
     }
 
-    return json.data.projects.node as ProjectLatestGQL[];
+    return json.data.projects.nodes as ProjectLatestGQL[];
   }
 
   throw new Error("An unknown error occurred");
