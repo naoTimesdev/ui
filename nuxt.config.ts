@@ -308,6 +308,11 @@ export default defineNuxtConfig({
   experimental: {
     buildCache: true,
   },
+  icon: {
+    serverBundle: "local",
+    provider: "server",
+    mode: "svg",
+  },
   hooks: {
     "nitro:config": () => {
       // verify defaultLocale is in locales early

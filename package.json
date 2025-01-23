@@ -44,7 +44,7 @@
     "@iconify-json/lucide": "1.2.24",
     "@iconify-json/radix-icons": "1.2.2",
     "@iconify-json/simple-icons": "1.2.21",
-    "@nuxtjs/apollo": "patch:@nuxtjs/apollo@npm%3A5.0.0-alpha.14#~/.yarn/patches/@nuxtjs-apollo-npm-5.0.0-alpha.14-d71b00a0ae.patch",
+    "@nuxtjs/apollo": "5.0.0-alpha.14",
     "@nuxtjs/tailwindcss": "6.13.1",
     "@stylistic/eslint-plugin": "2.13.0",
     "@types/eslint": "9.6.1",
@@ -64,11 +64,12 @@
     "typescript": "5.7.3",
     "typescript-eslint": "8.21.0"
   },
-  "packageManager": "yarn@4.4.1",
+  "packageManager": "bun@1.2.0",
   "engines": {
-    "npm": "please-use-yarn",
-    "pnpm": "please-use-yarn",
-    "node": ">= 20.9.0",
-    "yarn": ">= 4.4.1"
+    "npm": "please-use-bun",
+    "pnpm": "please-use-bun",
+    "node": "please-use-bun",
+    "yarn": "please-use-bun",
+    "bun": ">= 1.2.0"
   }
 }
