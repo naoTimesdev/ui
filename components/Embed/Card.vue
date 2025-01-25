@@ -47,7 +47,10 @@
         </div>
         <button
           :class="cn('mt-2 flex flex-row items-center transition hover:opacity-80 focus:outline-none', buttonColor)"
-          @click="dropdownOpen = !dropdownOpen"
+          @click="
+            dropdownOpen = !dropdownOpen;
+            $emit('toggleDropdown');
+          "
         >
           <div class="size-5">
             <Icon v-if="dropdownOpen" name="i-radix-icons-chevron-up" class="-ml-1 size-5" />
@@ -97,6 +100,10 @@ const props = defineProps<{
   project: ProjectLatestGQL;
   language: AvailableLocalesType;
   accent: ColorAccent;
+}>();
+
+defineEmits<{
+  toggleDropdown: [];
 }>();
 
 const { t } = useI18n();

@@ -19,6 +19,7 @@
         :project="project"
         :language="embedLang"
         :accent="embedAccent"
+        @toggle-dropdown="dispatchNewHeight"
       />
     </div>
   </div>
@@ -217,8 +218,6 @@ function getHeadInfo(server?: SearchServer): Parameters<typeof useHeadSafe>[0] {
 
 function dispatchNewHeight() {
   if (window.parent) {
-    console.log("Dispatching new height");
-
     const height = document.body.scrollHeight;
 
     window.parent.postMessage(
