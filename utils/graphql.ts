@@ -17,15 +17,32 @@ export type ProjectKindGQL =
   | "GAMES"
   | "VISUAL_NOVEL"
   | "UNKNOWN";
+export type APIKeyCapability =
+  | "MANAGE_SERVERS"
+  | "MANAGE_PROJECTS"
+  | "MANAGE_RSS"
+  | "MANAGE_USERS"
+  | "DELETE_SERVERS"
+  | "DELETE_PROJECTS"
+  | "MANAGE_COLLABORATION"
+  | "QUERY_SERVERS"
+  | "QUERY_PROJECTS"
+  | "QUERY_STATS"
+  | "QUERY_SEARCH";
 
 export interface ImageMetadataGQL {
   url?: string;
 }
 
+export interface APIKeyDataGQL {
+  key: APIKey;
+  capabilities: APIKeyCapability[];
+}
+
 export interface UserGQL {
   id: UlidGQL;
   username: string;
-  apiKey: APIKey;
+  apiKey: APIKeyDataGQL[];
   avatar: Nullable<ImageMetadataGQL>;
   kind: UserKindGQL;
 }
@@ -73,7 +90,10 @@ export const mutateAuthDiscord = gql`
       user {
         id
         username
-        apiKey
+        apiKey {
+          key
+          capabilities
+        }
         avatar {
           url
         }
@@ -90,7 +110,10 @@ export const queryCurrentUser = gql`
       user {
         id
         username
-        apiKey
+        apiKey {
+          key
+          capabilities
+        }
         avatar {
           url
         }
