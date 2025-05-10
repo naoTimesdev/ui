@@ -155,7 +155,7 @@ export default tseslint.config(
       "vue/return-in-computed-property": "off",
       "vue/block-lang": ["error", { script: { lang: "ts" }, style: { lang: "postcss" } }],
       "vue/no-v-html": "warn",
-      "vue/component-tags-order": [
+      "vue/block-order": [
         "error",
         { order: ["template", "script[setup]", "script", "style"] },
       ],

@@ -24,12 +24,10 @@ import {
   useForwardPropsEmits,
 } from "radix-vue";
 
-// eslint-disable-next-line vue/require-default-prop
 const props = withDefaults(
+  // eslint-disable-next-line vue/require-default-prop
   defineProps<DropdownMenuContentProps & { class?: HTMLAttributes["class"] }>(),
-  {
-    sideOffset: 4,
-  },
+  { sideOffset: 4 },
 );
 const emits = defineEmits<DropdownMenuContentEmits>();
 

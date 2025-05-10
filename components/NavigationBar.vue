@@ -50,7 +50,7 @@
 </template>
 
 <script setup lang="ts">
-const servers = useUserServers();
+const _servers = useUserServers();
 const { user, logout } = useAuth();
 const { makeCdnUrl } = useServerUrl();
 

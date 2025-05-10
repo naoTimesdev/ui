@@ -1,20 +1,10 @@
 <template>
-  <Teleport>
-    <div
-      :class="{
-        invisible: !isVisible,
-        visible: isVisible,
-      }"
-    >
+  <Teleport to="body">
+    <div :class="{ invisible: !isVisible, visible: isVisible }">
       <div
         class="fixed bottom-0 left-0 right-0 top-0 z-[200] w-full select-none bg-black transition-opacity"
-        :class="{
-          'opacity-50': isOpen,
-          'opacity-0': !isOpen,
-        }"
-        :style="{
-          transitionDuration: `${speed}ms`,
-        }"
+        :class="{ 'opacity-50': isVisible, 'opacity-0': !isVisible }"
+        :style="{ transitionDuration: `${speed}ms` }"
       />
       <div
         ref="contentTarget"
@@ -28,9 +18,7 @@
             classContent,
           )
         "
-        :style="{
-          transitionDuration: `${speed}ms`,
-        }"
+        :style="{ transitionDuration: `${speed}ms` }"
       >
         <slot />
       </div>
@@ -41,24 +29,16 @@
 <script setup lang="ts">
 const props = withDefaults(
   defineProps<{
-    open: boolean;
-    location: "left" | "right";
-    speed: number;
+    open?: boolean;
+    location?: "left" | "right";
+    speed?: number;
     classContent?: string;
     maxWidth?: string;
   }>(),
-  {
-    open: false,
-    speed: 300,
-    location: "left",
-    maxWidth: "320px",
-    classContent: "",
-  },
+  { open: false, speed: 300, location: "left", maxWidth: "320px", classContent: "" },
 );
 
-const emits = defineEmits<{
-  close: [];
-}>();
+const emits = defineEmits<{ close: [] }>();
 
 const isVisible = ref(false);
 const isTransition = ref(false);
