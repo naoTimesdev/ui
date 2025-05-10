@@ -4,7 +4,7 @@
     :class="
       cn(
         'flex cursor-default select-none items-center rounded-sm px-2 py-1.5 text-sm outline-none focus:bg-accent data-[state=open]:bg-accent',
-        $props.class
+        $props.class,
       )
     "
   >
@@ -15,9 +15,15 @@
 
 <script setup lang="ts">
 import { type HTMLAttributes } from "vue";
-import { DropdownMenuSubTrigger, type DropdownMenuSubTriggerProps, useForwardProps } from "radix-vue";
+import {
+  DropdownMenuSubTrigger,
+  type DropdownMenuSubTriggerProps,
+  useForwardProps,
+} from "radix-vue";
 
-const props = defineProps<DropdownMenuSubTriggerProps & { class?: HTMLAttributes["class"] }>();
+const props = defineProps<
+  DropdownMenuSubTriggerProps & { class?: HTMLAttributes["class"] }
+>();
 
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props;
@@ -27,4 +33,3 @@ const delegatedProps = computed(() => {
 
 const forwardedProps = useForwardProps(delegatedProps);
 </script>
-

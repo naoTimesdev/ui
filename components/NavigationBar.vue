@@ -18,7 +18,9 @@
           </UIDropdownMenuTrigger>
           <UIDropdownMenuContent class="w-56">
             <UIDropdownMenuLabel>
-              <p class="font-variable leading-none variation-weight-semibold">{{ user.username }}</p>
+              <p class="font-variable leading-none variation-weight-semibold">
+                {{ user.username }}
+              </p>
             </UIDropdownMenuLabel>
             <UIDropdownMenuSeparator />
             <UIDropdownMenuGroup>
@@ -33,7 +35,11 @@
               </UIDropdownMenuItem>
             </UIDropdownMenuGroup>
             <UIDropdownMenuSeparator />
-            <UIDropdownMenuItem as="button" class="w-full cursor-pointer" @click="onLogout">
+            <UIDropdownMenuItem
+              as="button"
+              class="w-full cursor-pointer"
+              @click="onLogout"
+            >
               <span>Log out</span>
             </UIDropdownMenuItem>
           </UIDropdownMenuContent>

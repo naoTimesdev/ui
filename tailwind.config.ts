@@ -107,8 +107,16 @@ export default {
         },
       },
       fontFamily: {
-        monospace: ["Monaspace Xenon Var VF", "Monaspace Xenon", ...defaultTheme.fontFamily.mono],
-        sans: ["Monaspace Neon Var VF", "Monaspace Neon", ...defaultTheme.fontFamily.sans],
+        monospace: [
+          "Monaspace Xenon Var VF",
+          "Monaspace Xenon",
+          ...defaultTheme.fontFamily.mono,
+        ],
+        sans: [
+          "Monaspace Neon Var VF",
+          "Monaspace Neon",
+          ...defaultTheme.fontFamily.sans,
+        ],
         custom: [
           "Monaspace Neon",
           "Monaspace Xenon",
@@ -190,7 +198,7 @@ export default {
         },
         {
           values: theme("fontWeight"),
-        }
+        },
       );
 
       matchUtilities(
@@ -202,9 +210,11 @@ export default {
         {
           // 0 to 20, step 5
           values: {
-            ...Object.fromEntries(Array.from({ length: 5 }, (_, i) => [i * 5, (i * 5).toString()])),
+            ...Object.fromEntries(
+              Array.from({ length: 5 }, (_, i) => [i * 5, (i * 5).toString()]),
+            ),
           },
-        }
+        },
       );
 
       matchUtilities(
@@ -221,10 +231,10 @@ export default {
               Object.entries(theme("fontSize")).map(([key, value]) => [
                 key,
                 approxRemToPx(Number.parseFloat(value[0].replace("rem", ""))),
-              ])
+              ]),
             ),
           },
-        }
+        },
       );
 
       matchUtilities(
@@ -241,7 +251,7 @@ export default {
             stretch: "125",
             extended: "150",
           },
-        }
+        },
       );
     }),
   ],

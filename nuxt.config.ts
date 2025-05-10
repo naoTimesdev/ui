@@ -191,7 +191,8 @@ export default defineNuxtConfig({
           src: "https://tr.n4o.xyz/js/37a79777T080eR4f52A99e2Ica9619a85a5d.js",
           defer: true,
           async: true,
-          "data-domain": new URL(import.meta.env.DOMAIN_URL || "https://panel.naoti.me").hostname,
+          "data-domain": new URL(import.meta.env.DOMAIN_URL || "https://panel.naoti.me")
+            .hostname,
           "data-api": "https://tr.n4o.xyz/magic/18c5dcddMc036A4d1dGb785Iaa2e310238c9",
         },
       ],
@@ -221,14 +222,21 @@ export default defineNuxtConfig({
   runtimeConfig: {
     public: {
       apiUrl: import.meta.env.API_URL || "https://api.naoti.me",
-      cdnUrl: import.meta.env.CDN_URL || import.meta.env.API_URL || "https://api.naoti.me",
+      cdnUrl:
+        import.meta.env.CDN_URL || import.meta.env.API_URL || "https://api.naoti.me",
       meiliUrl: import.meta.env.MEILI_URL || "https://msapi.naoti.me",
       meiliKey: import.meta.env.MEILI_KEY,
       domainUrl: import.meta.env.DOMAIN_URL || "https://panel.naoti.me",
     },
-    meiliPrivateUrl: import.meta.env.MEILI_PRIVATE_URL || import.meta.env.MEILI_URL || "https://msapi.naoti.me",
+    meiliPrivateUrl:
+      import.meta.env.MEILI_PRIVATE_URL ||
+      import.meta.env.MEILI_URL ||
+      "https://msapi.naoti.me",
     meiliPrivateKey: import.meta.env.MEILI_KEY,
-    apiPrivateUrl: import.meta.env.API_PRIVATE_URL || import.meta.env.API_URL || "https://api.naoti.me",
+    apiPrivateUrl:
+      import.meta.env.API_PRIVATE_URL ||
+      import.meta.env.API_URL ||
+      "https://api.naoti.me",
     apiPrivateKey: import.meta.env.API_KEY,
   },
   i18n: {
@@ -246,7 +254,9 @@ export default defineNuxtConfig({
       default: {
         httpEndpoint: `${import.meta.env.API_URL || "https://api.naoti.me"}/graphql`,
         // XXX: Enable later when WS is fully implemented
-        wsEndpoint: getWsEndpoint(`${import.meta.env.API_URL || "https://api.naoti.me"}/graphql`),
+        wsEndpoint: getWsEndpoint(
+          `${import.meta.env.API_URL || "https://api.naoti.me"}/graphql`,
+        ),
         tokenName: "naotimesui.token",
         tokenStorage: "localStorage",
         websocketsOnly: false,
@@ -336,11 +346,13 @@ export default defineNuxtConfig({
         (route) =>
           route.route.startsWith("/_ipx/") &&
           !route.route.startsWith("/_ipx/_/") &&
-          route.route.includes("/assets/images/")
+          route.route.includes("/assets/images/"),
       );
 
       if (pregenIpxImages && pregenIpxImages.length) {
-        nitro.logger.info(`Removing original images of ${pregenIpxImages.length} pre-generated IPX images`);
+        nitro.logger.info(
+          `Removing original images of ${pregenIpxImages.length} pre-generated IPX images`,
+        );
 
         // Get public output dir
         const nitroPublicDir = nitro.options.output.publicDir;
@@ -349,7 +361,10 @@ export default defineNuxtConfig({
         const actualImagesPath = pregenIpxImages.map((route) => {
           // ipx fileName format are '/_ipx/f_webp&q_90/assets/images/kidoworkshop1/img-hero.png'
           // remove '/_ipx/xxxxxx/' part
-          const cleanedPath = (route.fileName ?? route.route).replace(/^\/_ipx\/[^/]+\//, "/");
+          const cleanedPath = (route.fileName ?? route.route).replace(
+            /^\/_ipx\/[^/]+\//,
+            "/",
+          );
 
           // Transform into {PUBLID_DIR}/{ACTUAL_PATH}
           return join(nitroPublicDir, cleanedPath);
@@ -365,4 +380,3 @@ export default defineNuxtConfig({
     },
   },
 });
-

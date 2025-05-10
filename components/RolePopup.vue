@@ -1,7 +1,11 @@
 <template>
   <div
     :class="
-      cn('group relative inline-block cursor-default rounded border px-1 align-middle', computedColor, $props.class)
+      cn(
+        'group relative inline-block cursor-default rounded border px-1 align-middle',
+        computedColor,
+        $props.class,
+      )
     "
   >
     <span :class="cn('align-middle', $props.classText)">{{ realTitle }}</span>
@@ -9,7 +13,7 @@
       :class="
         cn(
           'pointer-events-none absolute bottom-6 left-1/2 z-50 block -translate-x-1/2 transform whitespace-nowrap rounded-sm border px-2 py-1 text-center text-xs opacity-0 shadow transition-opacity focus:opacity-100 group-hover:opacity-100',
-          computedColor
+          computedColor,
         )
       "
     >
@@ -37,6 +41,8 @@ const realTitle = computed(() => {
 });
 
 const computedColor = computed(() => {
-  return RoleColorPalette[props.title as keyof typeof RoleColorPalette] || RoleColorFallback;
+  return (
+    RoleColorPalette[props.title as keyof typeof RoleColorPalette] || RoleColorFallback
+  );
 });
 </script>

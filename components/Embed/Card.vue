@@ -6,7 +6,13 @@
     :data-count="project.count"
   >
     <div class="relative mb-8 ml-3 mt-3 hidden w-24 flex-none sm:block">
-      <NuxtImg :src="posterUrl" width="250" height="325" class="z-0 rounded-md" :alt="`Poster Proyek ${project.id}`" />
+      <NuxtImg
+        :src="posterUrl"
+        width="250"
+        height="325"
+        class="z-0 rounded-md"
+        :alt="`Poster Proyek ${project.id}`"
+      />
     </div>
     <div class="flex h-full max-w-full flex-grow flex-col px-3 py-8 pt-2 text-xs">
       <h1
@@ -46,21 +52,32 @@
           />
         </div>
         <button
-          :class="cn('mt-2 flex flex-row items-center transition hover:opacity-80 focus:outline-none', buttonColor)"
+          :class="
+            cn(
+              'mt-2 flex flex-row items-center transition hover:opacity-80 focus:outline-none',
+              buttonColor,
+            )
+          "
           @click="
             dropdownOpen = !dropdownOpen;
             $emit('toggleDropdown');
           "
         >
           <div class="size-5">
-            <Icon v-if="dropdownOpen" name="i-radix-icons-chevron-up" class="-ml-1 size-5" />
+            <Icon
+              v-if="dropdownOpen"
+              name="i-radix-icons-chevron-up"
+              class="-ml-1 size-5"
+            />
             <Icon v-else name="i-radix-icons-chevron-down" class="-ml-1 size-5" />
           </div>
           <div class="text-left">
             {{
               dropdownOpen
                 ? $t("embed.card.hideEpisodes", [], { locale: props.language })
-                : $t("embed.card.showEpisodes", [next3Episode.length], { locale: props.language })
+                : $t("embed.card.showEpisodes", [next3Episode.length], {
+                    locale: props.language,
+                  })
             }}
           </div>
         </button>
@@ -72,7 +89,10 @@
           <EmbedDelayReason v-if="firstEpisode.delayReason">
             {{ firstEpisode.delayReason }}
           </EmbedDelayReason>
-          <time :datetime="project.updated" class="font-variable text-[0.7rem] tracking-tighter">
+          <time
+            :datetime="project.updated"
+            class="font-variable text-[0.7rem] tracking-tighter"
+          >
             {{ $t("embed.card.lastUpdate", [formatUpdated], { locale: language }) }}
           </time>
         </div>
@@ -84,7 +104,11 @@
         }"
       >
         <div class="inline text-right">
-          <EmbedEmojiSeason v-if="formattedSeason" :season="formattedSeason.season" class="mb-0.5 mr-1 inline size-3" />
+          <EmbedEmojiSeason
+            v-if="formattedSeason"
+            :season="formattedSeason.season"
+            class="mb-0.5 mr-1 inline size-3"
+          />
           <span v-if="formattedSeason" class="align-middle">
             {{ getSeasonName(formattedSeason.season, formattedSeason.year) }}
           </span>
@@ -191,13 +215,16 @@ function getSeason(month: number): "winter" | "spring" | "summer" | "fall" {
   return "winter";
 }
 
-function getSeasonName(month: "winter" | "spring" | "summer" | "fall", year: number): string {
+function getSeasonName(
+  month: "winter" | "spring" | "summer" | "fall",
+  year: number,
+): string {
   return t(
     `embed.card.seasonYear.${month}`,
     { year },
     {
       locale: props.language,
-    }
+    },
   );
 }
 </script>

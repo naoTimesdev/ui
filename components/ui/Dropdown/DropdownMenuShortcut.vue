@@ -11,4 +11,3 @@ defineProps<{
   class?: HTMLAttributes["class"];
 }>();
 </script>
-

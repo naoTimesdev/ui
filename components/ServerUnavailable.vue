@@ -1,7 +1,10 @@
 <template>
   <div class="flex h-screen flex-col items-center justify-center px-2">
     <!-- Main "Screen" -->
-    <div ref="mouseArea" class="absolute left-0 top-0 -z-10 h-screen w-screen overflow-hidden">
+    <div
+      ref="mouseArea"
+      class="absolute left-0 top-0 -z-10 h-screen w-screen overflow-hidden"
+    >
       <!-- This will follow mouse cursor -->
       <div ref="mouseTrail" class="absolute rounded-full bg-red-300 dark:bg-red-700" />
     </div>
@@ -62,7 +65,7 @@ const unwatchMouseTrail = watch(
   },
   {
     immediate: true,
-  }
+  },
 );
 
 const unwatchMouseClick = watch(pressed, (mClick) => {

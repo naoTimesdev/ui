@@ -2,9 +2,13 @@ const useUserServers = defineStore("user-servers", () => {
   const router = useRouter();
 
   // State
-  const activeServer = useLocalStorage<string | undefined>("naotimesui:active-servers", undefined, {
-    initOnMounted: true,
-  });
+  const activeServer = useLocalStorage<string | undefined>(
+    "naotimesui:active-servers",
+    undefined,
+    {
+      initOnMounted: true,
+    },
+  );
 
   // Actions
 

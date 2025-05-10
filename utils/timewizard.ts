@@ -1,4 +1,8 @@
-import { formatTimeAgo, type UseTimeAgoMessages, type UseTimeAgoUnitNamesDefault } from "@vueuse/core";
+import {
+  formatTimeAgo,
+  type UseTimeAgoMessages,
+  type UseTimeAgoUnitNamesDefault,
+} from "@vueuse/core";
 import type { AvailableLocalesType } from "./embed";
 
 /**
@@ -59,7 +63,9 @@ export function romanizeNumber(number: number): string {
   return Array(+digits.join("") + 1).join("M") + roman;
 }
 
-function loadLocales(locale: AvailableLocalesType): UseTimeAgoMessages<UseTimeAgoUnitNamesDefault> {
+function loadLocales(
+  locale: AvailableLocalesType,
+): UseTimeAgoMessages<UseTimeAgoUnitNamesDefault> {
   const { t } = useI18n();
 
   return {
@@ -103,7 +109,11 @@ function loadLocales(locale: AvailableLocalesType): UseTimeAgoMessages<UseTimeAg
  * @param locale The locale to use
  * @returns The time ago string
  */
-export function timeAgo(from: Date, locale: AvailableLocalesType, nowDate?: Date): string {
+export function timeAgo(
+  from: Date,
+  locale: AvailableLocalesType,
+  nowDate?: Date,
+): string {
   const locales = loadLocales(locale);
 
   return formatTimeAgo(
@@ -111,6 +121,6 @@ export function timeAgo(from: Date, locale: AvailableLocalesType, nowDate?: Date
     {
       messages: locales,
     },
-    nowDate
+    nowDate,
   );
 }

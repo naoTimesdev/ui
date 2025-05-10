@@ -1,5 +1,8 @@
 <template>
-  <DropdownMenuSeparator v-bind="delegatedProps" :class="cn('-mx-1 my-1 h-px bg-muted', $props.class)" />
+  <DropdownMenuSeparator
+    v-bind="delegatedProps"
+    :class="cn('-mx-1 my-1 h-px bg-muted', $props.class)"
+  />
 </template>
 
 <script setup lang="ts">
@@ -18,4 +21,3 @@ const delegatedProps = computed(() => {
   return delegated;
 });
 </script>
-

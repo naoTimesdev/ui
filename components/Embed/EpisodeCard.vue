@@ -9,7 +9,11 @@
   >
     <div>
       <div>
-        <EmbedDelayReason v-if="progress.delayReason && !hideReason" class="mb-1 mr-1" smaller>
+        <EmbedDelayReason
+          v-if="progress.delayReason && !hideReason"
+          class="mb-1 mr-1"
+          smaller
+        >
           {{ progress.delayReason }}
         </EmbedDelayReason>
         <span class="font-variable variation-weight-semibold">
@@ -37,7 +41,10 @@
       <template v-else-if="episodeAired && !anyProgress">
         <template v-if="formattedAirDate">
           <div>
-            <time class="font-variable variation-weight-medium" :datetime="formattedAirDate.airDate">
+            <time
+              class="font-variable variation-weight-medium"
+              :datetime="formattedAirDate.airDate"
+            >
               {{ $t("embed.card.aired", [formattedAirDate.text], { locale: language }) }}
             </time>
           </div>
@@ -123,39 +130,69 @@ function localizeRole(role: ProjectLatestGQL["progress"][0]["statuses"][0]["role
 function localizeEpisodeNumber(n: number, unfinishedCount: number) {
   switch (props.kind) {
     case "SERIES": {
-      return t("embed.card.number.series", unfinishedCount, { locale: props.language, named: { n } });
+      return t("embed.card.number.series", unfinishedCount, {
+        locale: props.language,
+        named: { n },
+      });
     }
     case "MANGA": {
-      return t("embed.card.number.manga", unfinishedCount, { locale: props.language, named: { n } });
+      return t("embed.card.number.manga", unfinishedCount, {
+        locale: props.language,
+        named: { n },
+      });
     }
     case "MOVIES": {
       if (props.count > 1) {
-        return t("embed.card.number.movies.plural", unfinishedCount, { locale: props.language, named: { n } });
+        return t("embed.card.number.movies.plural", unfinishedCount, {
+          locale: props.language,
+          named: { n },
+        });
       }
 
-      return t("embed.card.number.movies.singular", unfinishedCount, { locale: props.language, named: { n } });
+      return t("embed.card.number.movies.singular", unfinishedCount, {
+        locale: props.language,
+        named: { n },
+      });
     }
     case "OVA": {
       if (props.count > 1) {
-        return t("embed.card.number.ova.plural", unfinishedCount, { locale: props.language, named: { n } });
+        return t("embed.card.number.ova.plural", unfinishedCount, {
+          locale: props.language,
+          named: { n },
+        });
       }
 
-      return t("embed.card.number.ova.singular", unfinishedCount, { locale: props.language, named: { n } });
+      return t("embed.card.number.ova.singular", unfinishedCount, {
+        locale: props.language,
+        named: { n },
+      });
     }
     case "BOOKS":
     case "LIGHT_NOVEL": {
       if (props.count > 1) {
-        return t("embed.card.number.books.plural", unfinishedCount, { locale: props.language, named: { n } });
+        return t("embed.card.number.books.plural", unfinishedCount, {
+          locale: props.language,
+          named: { n },
+        });
       }
 
-      return t("embed.card.number.books.singular", unfinishedCount, { locale: props.language, named: { n } });
+      return t("embed.card.number.books.singular", unfinishedCount, {
+        locale: props.language,
+        named: { n },
+      });
     }
     case "GAMES": {
       if (props.count > 1) {
-        return t("embed.card.number.games.plural", unfinishedCount, { locale: props.language, named: { n } });
+        return t("embed.card.number.games.plural", unfinishedCount, {
+          locale: props.language,
+          named: { n },
+        });
       }
 
-      return t("embed.card.number.games.singular", unfinishedCount, { locale: props.language, named: { n } });
+      return t("embed.card.number.games.singular", unfinishedCount, {
+        locale: props.language,
+        named: { n },
+      });
     }
     case "VISUAL_NOVEL": {
       if (props.count > 1) {
@@ -171,7 +208,10 @@ function localizeEpisodeNumber(n: number, unfinishedCount: number) {
       });
     }
     case "UNKNOWN": {
-      return t("embed.card.number.series", unfinishedCount, { locale: props.language, named: { n } });
+      return t("embed.card.number.series", unfinishedCount, {
+        locale: props.language,
+        named: { n },
+      });
     }
   }
 }

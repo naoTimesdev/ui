@@ -21,9 +21,11 @@
         :class="
           cn(
             'fixed bottom-0 top-0 z-[9999] flex h-full w-full flex-col overflow-auto transition-transform',
-            location === 'right' ? 'right-0 translate-x-full' : 'left-0 -translate-x-full',
+            location === 'right'
+              ? 'right-0 translate-x-full'
+              : 'left-0 -translate-x-full',
             open && 'translate-x-0',
-            classContent
+            classContent,
           )
         "
         :style="{
@@ -51,7 +53,7 @@ const props = withDefaults(
     location: "left",
     maxWidth: "320px",
     classContent: "",
-  }
+  },
 );
 
 const emits = defineEmits<{
@@ -92,7 +94,7 @@ watch(
     setTimeout(() => {
       isTransition.value = false;
     }, props.speed);
-  }
+  },
 );
 
 onMounted(() => {

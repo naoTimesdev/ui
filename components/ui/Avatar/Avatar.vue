@@ -21,7 +21,7 @@ const props = withDefaults(
     size: "sm",
     shape: "circle",
     class: "",
-  }
+  },
 );
 
 const avatarVariant = cva(
@@ -38,7 +38,6 @@ const avatarVariant = cva(
         square: "rounded-md",
       },
     },
-  }
+  },
 );
 </script>
-

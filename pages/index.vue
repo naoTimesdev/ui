@@ -5,9 +5,13 @@
     >
       <div class="flex flex-col p-8">
         <div class="flex flex-row items-center gap-2">
-          <NuxtImg src="/assets/images/nt192.png" class="logo-nt-glow size-8 object-contain" />
+          <NuxtImg
+            src="/assets/images/nt192.png"
+            class="logo-nt-glow size-8 object-contain"
+          />
           <h1 class="font-variable select-none text-2xl variation-weight-extrabold">
-            <span class="font-variable variation-weight-normal">nao</span><span>Times</span>
+            <span class="font-variable variation-weight-normal">nao</span
+            ><span>Times</span>
           </h1>
         </div>
         <p class="font-variable mt-2 text-sm text-muted-foreground">
@@ -16,11 +20,7 @@
       </div>
       <div class="flex flex-col p-8">
         <p class="font-variable text-sm text-muted-foreground">
-          {{
-            $t("app.footer", {
-              year: romanizeNumber(currentYear),
-            })
-          }}
+          {{ $t("app.footer", { year: romanizeNumber(currentYear) }) }}
         </p>
         <div class="mt-0.5 flex">
           <NuxtLink
@@ -34,7 +34,10 @@
     </div>
     <div class="mx-auto flex h-screen flex-col justify-center p-8">
       <div class="flex flex-col items-center gap-2">
-        <NuxtImg src="/assets/images/nt192.png" class="logo-nt-glow mb-4 block size-24 object-contain lg:hidden" />
+        <NuxtImg
+          src="/assets/images/nt192.png"
+          class="logo-nt-glow mb-4 block size-24 object-contain lg:hidden"
+        />
         <h1 class="font-variable text-2xl variation-weight-semibold">
           {{ $t("login.header") }}
         </h1>
@@ -44,7 +47,13 @@
       </div>
       <div class="mt-4 flex w-full flex-col justify-center">
         <hr class="mx-auto mb-4 w-[60%] border-zinc-200 dark:border-zinc-700" />
-        <UIButton :as="nuxtLink" :href="discordAuth" variant="outline" size="lg" class="mx-auto md:max-w-[50%]">
+        <UIButton
+          :as="nuxtLink"
+          :href="discordAuth"
+          variant="outline"
+          size="lg"
+          class="mx-auto md:max-w-[50%]"
+        >
           <Icon name="i-simple-icons-discord" class="mr-3 h-6 w-6" />
           {{ $t("login.discord") }}
         </UIButton>
@@ -73,7 +82,8 @@ const discordAuth = computed(() => {
   const queryRedirect = route.query.redirect ?? localePath("/dashboard");
 
   const queryParams =
-    (Array.isArray(queryRedirect) ? queryRedirect[0]?.toString() : queryRedirect) ?? localePath("/dashboard");
+    (Array.isArray(queryRedirect) ? queryRedirect[0]?.toString() : queryRedirect) ??
+    localePath("/dashboard");
 
   const recorrectUrl = encodeURIComponent(decodeURIComponent(queryParams));
 

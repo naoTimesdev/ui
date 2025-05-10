@@ -17,4 +17,3 @@ const emits = defineEmits<DropdownMenuRootEmits>();
 
 const forwarded = useForwardPropsEmits(props, emits);
 </script>
-

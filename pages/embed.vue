@@ -6,7 +6,9 @@
       <EmbedErrorCard v-if="!serverData">
         {{ $t("embed.error.notFound") }}
       </EmbedErrorCard>
-      <EmbedErrorCard v-else-if="serverData && (projectsData === undefined || projectsData === null)">
+      <EmbedErrorCard
+        v-else-if="serverData && (projectsData === undefined || projectsData === null)"
+      >
         {{ $t("embed.error.failedProjects") }}
       </EmbedErrorCard>
       <EmbedErrorCard v-else-if="latestProjects.length === 0">
@@ -28,11 +30,7 @@
 <script setup lang="ts">
 import type { LocationQueryValue } from "vue-router";
 
-const defaultParams = {
-  lang: "id",
-  accent: "green",
-  dark: "false",
-};
+const defaultParams = { lang: "id", accent: "green", dark: "false" };
 
 const route = useRoute();
 const router = useRouter();
@@ -44,7 +42,7 @@ const embedLang = ref<AvailableLocalesType>("id");
 const embedAccent = ref<ColorAccent>("green");
 
 const getFirst = (
-  value: string | string[] | LocationQueryValue | LocationQueryValue[] | undefined
+  value: string | string[] | LocationQueryValue | LocationQueryValue[] | undefined,
 ): string | undefined => {
   if (value === undefined || value === null) {
     return;
@@ -67,16 +65,10 @@ const serverId = computed(() => {
   const srvId = getFirst(id);
 
   if (srvId && isDiscordSnowflake(srvId)) {
-    return {
-      id: srvId,
-      kind: "discord",
-    };
+    return { id: srvId, kind: "discord" };
   }
 
-  return {
-    id: srvId,
-    kind: "ulid",
-  };
+  return { id: srvId, kind: "ulid" };
 });
 
 function isDiscordSnowflake(value: string): boolean {
@@ -106,17 +98,11 @@ const { data: serverData } = await useAsyncData<SearchServer | undefined>(
 
     console.log("Querying meili", queryFilter, serverId.value);
 
-    const results = await meili.searchServerPrivate({
-      filter: queryFilter,
-    });
+    const results = await meili.searchServerPrivate({ filter: queryFilter });
 
     return results[0];
   },
-  {
-    server: true,
-    lazy: false,
-    immediate: true,
-  }
+  { server: true, lazy: false, immediate: true },
 );
 
 const { data: projectsData } = await useAsyncData(
@@ -136,11 +122,7 @@ const { data: projectsData } = await useAsyncData(
       throw new Error("Server not found");
     }
   },
-  {
-    server: true,
-    lazy: false,
-    immediate: true,
-  }
+  { server: true, lazy: false, immediate: true },
 );
 
 const latestProjects = computed(() => {
@@ -172,47 +154,24 @@ function getHeadInfo(server?: SearchServer): Parameters<typeof useHeadSafe>[0] {
     return {
       title: `Utang - ${server.name} :: naoTimesUI`,
       meta: [
-        {
-          name: "description",
-          content: `Sebuah daftar utang untuk ${server.name}`,
-        },
-        {
-          property: "og:title",
-          content: `Utang - ${server.name}`,
-        },
+        { name: "description", content: `Sebuah daftar utang untuk ${server.name}` },
+        { property: "og:title", content: `Utang - ${server.name}` },
         {
           property: "og:description",
           content: `Sebuah daftar utang untuk ${server.name}`,
         },
-        {
-          property: "og:image",
-          content: ogAPI.toString(),
-        },
-        {
-          property: "og:url",
-          content: embedUrlBase.toString(),
-        },
-        {
-          property: "og:site_name",
-          content: "naoTimesUI",
-        },
+        { property: "og:image", content: ogAPI.toString() },
+        { property: "og:url", content: embedUrlBase.toString() },
+        { property: "og:site_name", content: "naoTimesUI" },
         // twitter
-        {
-          name: "twitter:card",
-          content: "summary_large_image",
-        },
+        { name: "twitter:card", content: "summary_large_image" },
       ],
     };
   }
 
   return {
     title: "Tidak ditemukan :: naoTimesUI",
-    meta: [
-      {
-        name: "description",
-        content: "Server tidak ditemukan",
-      },
-    ],
+    meta: [{ name: "description", content: "Server tidak ditemukan" }],
   };
 }
 
@@ -220,13 +179,7 @@ function dispatchNewHeight() {
   if (window.parent) {
     const height = document.body.scrollHeight;
 
-    window.parent.postMessage(
-      JSON.stringify({
-        action: "resize",
-        height,
-      }),
-      "*"
-    );
+    window.parent.postMessage(JSON.stringify({ action: "resize", height }), "*");
   }
 }
 
@@ -250,11 +203,19 @@ function propagateHashChange() {
   const accent = parsedHash.get("accent");
   const lang = parsedHash.get("lang");
 
-  if (accent && accent !== embedAccent.value && ValidAccent.includes(accent as ColorAccent)) {
+  if (
+    accent &&
+    accent !== embedAccent.value &&
+    ValidAccent.includes(accent as ColorAccent)
+  ) {
     embedAccent.value = accent as ColorAccent;
   }
 
-  if (lang && lang !== embedLang.value && ValidLocales.includes(lang as AvailableLocalesType)) {
+  if (
+    lang &&
+    lang !== embedLang.value &&
+    ValidLocales.includes(lang as AvailableLocalesType)
+  ) {
     embedLang.value = lang as AvailableLocalesType;
   }
 }
@@ -264,10 +225,7 @@ function propagateEventChange(event: MessageEvent<string>) {
     return;
   }
 
-  let data: {
-    action: string;
-    target: string;
-  };
+  let data: { action: string; target: string };
 
   try {
     data = JSON.parse(event.data);
@@ -290,9 +248,15 @@ function propagateEventChange(event: MessageEvent<string>) {
         root.classList.remove("dark");
       }
     }
-  } else if (data.action === "setAccent" && ValidAccent.includes(data.target as ColorAccent)) {
+  } else if (
+    data.action === "setAccent" &&
+    ValidAccent.includes(data.target as ColorAccent)
+  ) {
     embedAccent.value = data.target as ColorAccent;
-  } else if (data.action === "setLanguage" && ValidLocales.includes(data.target as AvailableLocalesType)) {
+  } else if (
+    data.action === "setLanguage" &&
+    ValidLocales.includes(data.target as AvailableLocalesType)
+  ) {
     embedLang.value = data.target as AvailableLocalesType;
   }
 }
@@ -304,7 +268,9 @@ onMounted(() => {
   const hashDark = fromHash.get("dark");
 
   // Check dark mode
-  const darkify = hashDark ? castBooleanNull(hashDark) : mergedConfig.dark || defaultParams.dark;
+  const darkify = hashDark
+    ? castBooleanNull(hashDark)
+    : mergedConfig.dark || defaultParams.dark;
 
   if (darkify && castBooleanNull(darkify)) {
     window.document.documentElement.classList.add("dark");
@@ -326,9 +292,7 @@ onMounted(() => {
     // Change router URL without reloading
     if (serverData.value) {
       router.replace({
-        query: {
-          id: serverData.value.id,
-        },
+        query: { id: serverData.value.id },
         // Add hash
         hash: `#lang=${mergedConfig.lang}&accent=${mergedConfig.accent}&dark=${darkify}`,
       });
@@ -345,14 +309,13 @@ onBeforeUnmount(() => {
 });
 
 useHeadSafe(getHeadInfo(serverData.value ?? undefined));
-definePageMeta({
-  colorMode: "light",
-});
+definePageMeta({ colorMode: "light" });
 </script>
 
 <style lang="postcss" scoped>
 .font-embed-display {
-  font-family: "Monaspace Xenon Var VF", "M PLUS 1 Code Var VF", "Monaspace Xenon", "M PLUS 1 Code";
+  font-family:
+    "Monaspace Xenon Var VF", "M PLUS 1 Code Var VF", "Monaspace Xenon", "M PLUS 1 Code";
 }
 </style>
 

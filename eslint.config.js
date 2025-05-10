@@ -1,5 +1,6 @@
 import eslint from "@eslint/js";
 import eslintVue from "eslint-plugin-vue";
+import vueParser from "vue-eslint-parser";
 import tseslint from "typescript-eslint";
 import eslintStylistic from "@stylistic/eslint-plugin";
 import eslintPluginUnicorn from "eslint-plugin-unicorn";
@@ -9,35 +10,17 @@ import globals from "globals";
 export default tseslint.config(
   {
     languageOptions: {
-      globals: {
-        ...globals.node,
-        ...globals.browser,
-      },
+      globals: { ...globals.node, ...globals.browser },
       ecmaVersion: "latest",
       sourceType: "module",
-      parserOptions: {
-        ecmaVersion: "latest",
-        sourceType: "module",
-      },
+      parserOptions: { ecmaVersion: "latest", sourceType: "module" },
     },
   },
   eslint.configs.recommended,
   {
     rules: {
-      quotes: [
-        "error",
-        "double",
-        {
-          allowTemplateLiterals: true,
-        },
-      ],
-      semi: [
-        "error",
-        "always",
-        {
-          omitLastInOneLineBlock: true,
-        },
-      ],
+      quotes: ["error", "double", { allowTemplateLiterals: true }],
+      semi: ["error", "always", { omitLastInOneLineBlock: true }],
       "no-trailing-spaces": "error",
       "comma-dangle": [
         "error",
@@ -49,19 +32,9 @@ export default tseslint.config(
           exports: "never",
         },
       ],
-      "no-empty": [
-        "error",
-        {
-          allowEmptyCatch: true,
-        },
-      ],
+      "no-empty": ["error", { allowEmptyCatch: true }],
       "eol-last": ["warn", "always"],
-      "no-constant-condition": [
-        "error",
-        {
-          checkLoops: false,
-        },
-      ],
+      "no-constant-condition": ["error", { checkLoops: false }],
       "sort-imports": [
         "warn",
         {
@@ -74,36 +47,12 @@ export default tseslint.config(
       ],
       "padding-line-between-statements": [
         "error",
-        {
-          blankLine: "always",
-          prev: "directive",
-          next: "*",
-        },
-        {
-          blankLine: "any",
-          prev: "directive",
-          next: "directive",
-        },
-        {
-          blankLine: "always",
-          prev: "import",
-          next: "*",
-        },
-        {
-          blankLine: "any",
-          prev: "import",
-          next: "import",
-        },
-        {
-          blankLine: "always",
-          prev: "*",
-          next: ["const", "let", "var", "export"],
-        },
-        {
-          blankLine: "always",
-          prev: ["const", "let", "var", "export"],
-          next: "*",
-        },
+        { blankLine: "always", prev: "directive", next: "*" },
+        { blankLine: "any", prev: "directive", next: "directive" },
+        { blankLine: "always", prev: "import", next: "*" },
+        { blankLine: "any", prev: "import", next: "import" },
+        { blankLine: "always", prev: "*", next: ["const", "let", "var", "export"] },
+        { blankLine: "always", prev: ["const", "let", "var", "export"], next: "*" },
         {
           blankLine: "any",
           prev: ["const", "let", "var", "export"],
@@ -119,19 +68,9 @@ export default tseslint.config(
           prev: ["if", "class", "for", "do", "while", "switch", "try"],
           next: "*",
         },
-        {
-          blankLine: "always",
-          prev: "*",
-          next: "return",
-        },
+        { blankLine: "always", prev: "*", next: "return" },
       ],
-      "generator-star-spacing": [
-        "error",
-        {
-          before: true,
-          after: false,
-        },
-      ],
+      "generator-star-spacing": ["error", { before: true, after: false }],
 
       "space-infix-ops": "error",
     },
@@ -143,12 +82,8 @@ export default tseslint.config(
   {
     files: ["**/*.vue", "*.vue"],
     languageOptions: {
-      parserOptions: {
-        parser: tseslint.parser,
-        ecmaFeatures: {
-          jsx: true,
-        },
-      },
+      parser: vueParser,
+      parserOptions: { parser: tseslint.parser, ecmaFeatures: { jsx: true } },
     },
     rules: {
       // Taken from vue/eslint-config-typescript
@@ -165,10 +100,7 @@ export default tseslint.config(
     },
   },
   {
-    plugins: {
-      "@stylistic": eslintStylistic,
-      unicorn: eslintPluginUnicorn,
-    },
+    plugins: { "@stylistic": eslintStylistic, unicorn: eslintPluginUnicorn },
     rules: {
       "@stylistic/indent": ["error", 2],
       "@stylistic/array-element-newline": ["error", "consistent"],
@@ -194,20 +126,10 @@ export default tseslint.config(
           ignoreHTMLAttributeValues: true,
         },
       ],
-      "vue/html-self-closing": [
-        "error",
-        {
-          html: {
-            void: "always",
-            normal: "always",
-          },
-        },
-      ],
+      "vue/html-self-closing": ["error", { html: { void: "always", normal: "always" } }],
       "vue/define-macros-order": [
         "error",
-        {
-          order: ["defineOptions", "defineProps", "defineEmits", "defineSlots"],
-        },
+        { order: ["defineOptions", "defineProps", "defineEmits", "defineSlots"] },
       ],
       "vue/attributes-order": [
         "error",
@@ -231,32 +153,18 @@ export default tseslint.config(
       "vue/multiline-html-element-content-newline": "error",
       "vue/multi-word-component-names": "off",
       "vue/return-in-computed-property": "off",
-      "vue/block-lang": [
-        "error",
-        {
-          script: {
-            lang: "ts",
-          },
-          style: {
-            lang: "postcss",
-          },
-        },
-      ],
+      "vue/block-lang": ["error", { script: { lang: "ts" }, style: { lang: "postcss" } }],
       "vue/no-v-html": "warn",
       "vue/component-tags-order": [
         "error",
-        {
-          order: ["template", "script[setup]", "script", "style"],
-        },
+        { order: ["template", "script[setup]", "script", "style"] },
       ],
       "vue/no-v-text": "error",
     },
   },
   {
     files: ["pages/**/*.vue", "layouts/**/*.vue"],
-    rules: {
-      "vue/multi-word-component-names": "off",
-    },
+    rules: { "vue/multi-word-component-names": "off" },
   },
   {
     rules: {
@@ -273,7 +181,5 @@ export default tseslint.config(
       "@typescript-eslint/no-empty-object-type": "off",
     },
   },
-  {
-    ignores: ["**/node_modules/", ".git/", ".yarn/**/*", ".nuxt/**/*"],
-  }
+  { ignores: ["**/node_modules/", ".git/", ".yarn/**/*", ".nuxt/**/*"] },
 );

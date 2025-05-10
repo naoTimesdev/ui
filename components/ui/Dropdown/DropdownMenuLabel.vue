@@ -9,9 +9,15 @@
 
 <script setup lang="ts">
 import { type HTMLAttributes } from "vue";
-import { DropdownMenuLabel, type DropdownMenuLabelProps, useForwardProps } from "radix-vue";
+import {
+  DropdownMenuLabel,
+  type DropdownMenuLabelProps,
+  useForwardProps,
+} from "radix-vue";
 
-const props = defineProps<DropdownMenuLabelProps & { class?: HTMLAttributes["class"]; inset?: boolean }>();
+const props = defineProps<
+  DropdownMenuLabelProps & { class?: HTMLAttributes["class"]; inset?: boolean }
+>();
 
 const delegatedProps = computed(() => {
   const { class: _, ...delegated } = props;
@@ -21,4 +27,3 @@ const delegatedProps = computed(() => {
 
 const forwardedProps = useForwardProps(delegatedProps);
 </script>
-

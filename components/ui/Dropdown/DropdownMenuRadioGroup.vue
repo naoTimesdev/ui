@@ -17,4 +17,3 @@ const emits = defineEmits<DropdownMenuRadioGroupEmits>();
 
 const forwarded = useForwardPropsEmits(props, emits);
 </script>
-

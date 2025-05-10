@@ -7,4 +7,3 @@ import { AvatarImage, type AvatarImageProps } from "radix-vue";
 
 const props = defineProps<AvatarImageProps>();
 </script>
-
