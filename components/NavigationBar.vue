@@ -2,7 +2,7 @@
   <nav v-if="user" class="border-b">
     <div class="flex h-16 items-center justify-between px-4">
       <div class="flex flex-col">
-        <h2 class="font-variable variation-weight-bold">
+        <h2 class="font-variable pointer-events-none select-none variation-weight-bold">
           <span class="font-variable variation-weight-normal">nao</span><span>Times</span>
         </h2>
       </div>
@@ -24,13 +24,25 @@
             </UIDropdownMenuLabel>
             <UIDropdownMenuSeparator />
             <UIDropdownMenuGroup>
-              <UIDropdownMenuItem :as="nuxtLink" href="/dashboard/profile">
+              <UIDropdownMenuItem
+                :as="nuxtLink"
+                href="/dashboard/profile"
+                class="cursor-pointer"
+              >
                 <span>Profile</span>
               </UIDropdownMenuItem>
-              <UIDropdownMenuItem :as="nuxtLink" href="/dashboard/settings">
+              <UIDropdownMenuItem
+                :as="nuxtLink"
+                href="/dashboard/settings"
+                class="cursor-pointer"
+              >
                 <span>Settings</span>
               </UIDropdownMenuItem>
-              <UIDropdownMenuItem :as="nuxtLink" href="/dashboard/new">
+              <UIDropdownMenuItem
+                :as="nuxtLink"
+                href="/dashboard/new"
+                class="cursor-pointer"
+              >
                 <span>New Server</span>
               </UIDropdownMenuItem>
             </UIDropdownMenuGroup>

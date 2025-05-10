@@ -50,7 +50,7 @@ function cssImportPlugin(cssPath: string): PluginCreator {
 export default {
   content: [
     "./assets/**/*.{js,ts,vue,css,scss,html}",
-    "./components/**/*.{js,ts,vue,tsx,jsx}",
+    "./components/**/*.{js,ts,vue,css,scss,tsx,jsx}",
     "./composables/**/*.{js,ts,vue,tsx,jsx}",
     "./layouts/**/*.{js,ts,vue,tsx,jsx}",
     "./middleware/**/*.{js,ts,vue,tsx,jsx}",
@@ -63,13 +63,7 @@ export default {
   prefix: "",
   darkMode: "class",
   theme: {
-    container: {
-      center: true,
-      padding: "2rem",
-      screens: {
-        "2xl": "1400px",
-      },
-    },
+    container: { center: true, padding: "2rem", screens: { "2xl": "1400px" } },
     extend: {
       colors: {
         border: "hsl(var(--border))",
@@ -101,10 +95,7 @@ export default {
           DEFAULT: "hsl(var(--popover))",
           foreground: "hsl(var(--popover-foreground))",
         },
-        card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
-        },
+        card: { DEFAULT: "hsl(var(--card))", foreground: "hsl(var(--card-foreground))" },
       },
       fontFamily: {
         monospace: [
@@ -184,29 +175,16 @@ export default {
       });
 
       addUtilities({
-        ".font-variable-italic": {
-          "font-style": "italic",
-          "--font-variable-ital": "1",
-        },
+        ".font-variable-italic": { "font-style": "italic", "--font-variable-ital": "1" },
       });
 
       matchUtilities(
-        {
-          "variation-weight": (value) => ({
-            "--font-variable-wght": value,
-          }),
-        },
-        {
-          values: theme("fontWeight"),
-        },
+        { "variation-weight": (value) => ({ "--font-variable-wght": value }) },
+        { values: theme("fontWeight") },
       );
 
       matchUtilities(
-        {
-          "variation-slant": (value) => ({
-            "--font-variable-slnt": value,
-          }),
-        },
+        { "variation-slant": (value) => ({ "--font-variable-slnt": value }) },
         {
           // 0 to 20, step 5
           values: {
@@ -218,11 +196,7 @@ export default {
       );
 
       matchUtilities(
-        {
-          "variation-optical": (value) => ({
-            "--font-variable-opsz": value,
-          }),
-        },
+        { "variation-optical": (value) => ({ "--font-variable-opsz": value }) },
         {
           // similar to fontSize
           values: {
@@ -238,11 +212,7 @@ export default {
       );
 
       matchUtilities(
-        {
-          "variation-width": (value) => ({
-            "--font-variable-wdth": value,
-          }),
-        },
+        { "variation-width": (value) => ({ "--font-variable-wdth": value }) },
         {
           values: {
             normal: "100",
@@ -259,9 +229,7 @@ export default {
     "dark",
     "inline-block",
     "variation-width-stretch",
-    {
-      pattern: /^tracking-.*/,
-    },
+    { pattern: /^tracking-.*/ },
     "text-xs",
     "text-sm",
     "text-base",
@@ -271,5 +239,10 @@ export default {
     "text-3xl",
     "text-4xl",
     "variation-*",
+    "w-*",
+    "h-*",
+    "min-w-*",
+    "min-h-*",
+    "size-*",
   ],
 } as Partial<Config>;

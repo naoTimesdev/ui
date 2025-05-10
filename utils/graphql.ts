@@ -56,28 +56,15 @@ export interface ProjectLatestGQL {
   id: UlidGQL;
   title: string;
   kind: ProjectKindGQL;
-  poster: {
-    image: ImageMetadataGQL;
-  };
+  poster: { image: ImageMetadataGQL };
   progress: {
     airDate: Nullable<DateTimeGQL>;
     delayReason: Nullable<string>;
     finished: boolean;
     number: number;
-    statuses: {
-      role: {
-        key: string;
-        name: string;
-      };
-      finished: boolean;
-    }[];
+    statuses: { role: { key: string; name: string }; finished: boolean }[];
   }[];
-  collaboration: Nullable<{
-    servers: {
-      id: UlidGQL;
-      name: string;
-    }[];
-  }>;
+  collaboration: Nullable<{ servers: { id: UlidGQL; name: string }[] }>;
   count: number;
   startTime: Nullable<DateTimeGQL>;
   updated: DateTimeGQL;
@@ -91,7 +78,7 @@ export const mutateAuthDiscord = gql`
         id
         username
         apiKey {
-          key
+          apiKey
           capabilities
         }
         avatar {
@@ -111,7 +98,7 @@ export const queryCurrentUser = gql`
         id
         username
         apiKey {
-          key
+          apiKey
           capabilities
         }
         avatar {
@@ -200,9 +187,7 @@ export async function graphqlGetLatestProjectsInformation(serverId: UlidGQL) {
   const runtimeConfig = useRuntimeConfig();
   const { makeUrlPrivate } = useServerUrl();
 
-  const variables = {
-    serverId,
-  };
+  const variables = { serverId };
 
   const queryData = JSON.stringify({
     query: queryLatestProjectServers,

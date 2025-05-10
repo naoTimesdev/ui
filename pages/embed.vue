@@ -314,8 +314,8 @@ definePageMeta({ colorMode: "light" });
 
 <style lang="postcss" scoped>
 .font-embed-display {
-  font-family:
-    "Monaspace Xenon Var VF", "M PLUS 1 Code Var VF", "Monaspace Xenon", "M PLUS 1 Code";
+  font-family: "Monaspace Xenon Var VF", "M PLUS 1 Code Var VF", "Monaspace Xenon",
+    "M PLUS 1 Code";
 }
 </style>
 
